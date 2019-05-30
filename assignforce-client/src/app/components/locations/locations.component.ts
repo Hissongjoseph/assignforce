@@ -229,7 +229,7 @@ export class LocationsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result && this.notBlank(building.buildingName)) {
+      if (result && this.notBlank(building.name)) {
         this.addBuilding(location, building);
       }
     });
@@ -292,7 +292,7 @@ export class LocationsComponent implements OnInit {
     const original = new Building(
       building.isActive,
       building.id,
-      building.buildingName,
+      building.name,
       building.rooms,
       building.address
     );
@@ -305,7 +305,7 @@ export class LocationsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result && this.notBlank(building.buildingName)) {
+      if (result && this.notBlank(building.name)) {
         if (this.checkBuildingUnique(building)) {
           this.updateBuilding(location, building);
         } else {
@@ -460,11 +460,11 @@ export class LocationsComponent implements OnInit {
     for (let item of this.buildings) {
       console.log(item);
       if (
-        item.buildingName === building.buildingName &&
+        item.name === building.name &&
         item.address === building.address &&
         item.id !== building.id
       ) {
-        console.log('building(' + item.id + ') is the duplicate: ' + building.buildingName);
+        console.log('building(' + item.id + ') is the duplicate: ' + building.name);
         unique = false;
         break;
       }

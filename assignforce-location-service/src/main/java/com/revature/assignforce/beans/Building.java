@@ -29,9 +29,9 @@ public class Building {
 	private Boolean isActive;
 
 	@Column(name = "BUILDING_NAME")
-	@NotNull(message = "buildingName must not be null")
-	@Size(min = 1, max =128, message = "buildingName length must be between 1 and 128")
-	private String buildingName;
+	@NotNull(message = "name must not be null")
+	@Size(min = 1, max =128, message = "name length must be between 1 and 128")
+	private String name;
 	
 //	@JsonIgnoreProperties
 //	@ManyToOne(targetEntity=Location.class,fetch=FetchType.LAZY)
@@ -49,11 +49,11 @@ public class Building {
 		super();
 	}
 
-	public Building(int id, Boolean isActive, String buildingName, Integer address) {
+	public Building(int id, Boolean isActive, String name, Integer address) {
 		super();
 		this.id = id;
 		this.isActive = isActive;
-		this.buildingName = buildingName;
+		this.name = name;
 		//this.location = location;
 		this.address = address;
 	}
@@ -74,12 +74,12 @@ public class Building {
 		this.isActive = isActive;
 	}
 
-	public String getBuildingName() {
-		return buildingName;
+	public String getName() {
+		return name;
 	}
 
-	public void setBuildingName(String buildingName) {
-		this.buildingName = buildingName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 //	public void setLocation(Location location) {

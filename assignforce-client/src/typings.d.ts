@@ -29,7 +29,7 @@ interface NodeModule {
 //   locationId: number;
 //   locationName: string;
 //   id: number;
-//   buildingName: string;
+//   name: string;
 //   roomId: number;
 //   roomName: string;
 // }

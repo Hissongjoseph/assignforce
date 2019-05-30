@@ -70,8 +70,8 @@ public class BuildingTest {
 	public void getSetNameTest() {
 		String name = "HQ";
 		Building b = new Building();
-		b.setBuildingName(name);
-		assertTrue(b.getBuildingName().equals(name));
+		b.setName(name);
+		assertTrue(b.getName().equals(name));
 	}
 
 	@Test
@@ -108,20 +108,20 @@ public class BuildingTest {
 */
 	/**
 	 * @author JavierCastano
-	 * Asserts that there is a validation constraint on b1 because its buildingName is null.
+	 * Asserts that there is a validation constraint on b1 because its nrame is null.
 	 */
 	
 	@Test
 	public void buildingNameNotNull() {
 		Building b = new Building();
-		b.setBuildingName(null);
+		b.setName(null);
 		
 	    Set<ConstraintViolation<Building>> constraintViolations =
 	  	      validator.validate(b);
 
 	  	assertEquals(1, constraintViolations.size());
 	  	assertEquals(
-	  	 	     "buildingName must not be null",
+	  	 	     "name must not be null",
 	  	 	     constraintViolations.iterator().next().getMessage()
 	  	 	  );
 	}
@@ -135,14 +135,14 @@ public class BuildingTest {
 	@Test
 	public void BuildingNameSizeGreaterThanEmptyString() {
 		Building b = new Building();
-		b.setBuildingName("");
+		b.setName("");
 		
 		Set<ConstraintViolation<Building>> constraintViolations =
 		  	      validator.validate(b);
 
 		assertEquals(1, constraintViolations.size());
 		assertEquals(
-					"buildingName length must be between 1 and 128",
+					"name length must be between 1 and 128",
 		  	 	    constraintViolations.iterator().next().getMessage()
 		  	 	  );
 	}
@@ -156,7 +156,7 @@ public class BuildingTest {
 	@Test
 	public void BuildingSizeLessThan129() {
 		Building b = new Building();
-		b.setBuildingName("1234567890123456789012345678901234567890"
+		b.setName("1234567890123456789012345678901234567890"
 				+ "1234567890123456789012345678901234567890"
 				+ "1234567890123456789012345678901234567890"
 				+ "123456789");
@@ -166,7 +166,7 @@ public class BuildingTest {
 
 		assertEquals(1, constraintViolations.size());
 		assertEquals(
-					"buildingName length must be between 1 and 128",
+					"name length must be between 1 and 128",
 		  	 	    constraintViolations.iterator().next().getMessage()
 		  	 	  );
 	}

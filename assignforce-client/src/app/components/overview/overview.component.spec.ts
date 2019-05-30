@@ -100,14 +100,14 @@ const buildingService = {
       {
         "id": 1,
         "isActive": true,
-        "buildingName": "11730 Plaza American Drive (HQ)",
+        "name": "11730 Plaza American Drive (HQ)",
         "address": 1,
         "rooms": []
       },
       {
         "id": 2,
         "isActive": true,
-        "buildingName": "ASU Building 1",
+        "name": "ASU Building 1",
         "address": 2,
         "rooms": []
       }
@@ -296,7 +296,7 @@ describe('OverviewComponent', () => {
 
   it('should display the building name in b-building-cell', () => {
     const name = fixture.nativeElement.querySelectorAll('.b-building-cell')[0].textContent;
-    expect(name).toContain(component.buildingsList[0].buildingName);
+    expect(name).toContain(component.buildingsList[0].name);
   });
 
   it('should display the room name in b-room-cell', () => {

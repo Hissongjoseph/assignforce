@@ -8,7 +8,7 @@ import { Address } from './Address';
 export class Building {
   isActive: boolean;
   id: number;
-  buildingName: string;
+  name: string;
   rooms: Room[];
   address: number;
 
@@ -28,7 +28,7 @@ export class Building {
   constructor(isActive: boolean, id: number, buildingName: string, rooms: Room[], address: number) {
     this.isActive = isActive;
     this.id = id;
-    this.buildingName = buildingName;
+    this.name = buildingName;
     this.rooms = rooms;
     this.address = address;
     this.localServerId = id;

@@ -146,7 +146,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
       newBatch['cotrainer'] = cotrainer ? `${cotrainer.firstName} ${cotrainer.lastName}` : '';
 
       newBatch['location'] = location ? location.name : '';
-      newBatch['building'] = building ? building.buildingName : '';
+      newBatch['building'] = building ? building.name : '';
       newBatch['room'] = room ? room.roomName : '';
 
       newBatch['startDate'] = startDate;
