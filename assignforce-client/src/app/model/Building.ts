@@ -7,15 +7,14 @@ import { Address } from './Address';
 
 export class Building {
   isActive: boolean;
-  buildingId: number;
+  id: number;
   buildingName: string;
   rooms: Room[];
   address: number;
 
   // this is to make the local server implementation work.
   // this *needs* to be tested with the proper back end
-  
-  id: number;
+  localServerId: number;
 
   /**
    * Creates an instance of Building.
@@ -28,10 +27,10 @@ export class Building {
    */
   constructor(isActive: boolean, id: number, buildingName: string, rooms: Room[], address: number) {
     this.isActive = isActive;
-    this.buildingId = id;
+    this.id = id;
     this.buildingName = buildingName;
     this.rooms = rooms;
     this.address = address;
-    this.id = id;
+    this.localServerId = id;
   }
 }

@@ -74,8 +74,8 @@ export class LocationsComponent implements OnInit {
     this.buildingService.findAll().subscribe(buildings => {
       this.buildings = buildings;
       for (let b of buildings) {
-        if (b.buildingId === null) {
-          b.buildingId = b.id;
+        if (b.id === null) {
+          b.id = b.id;
           this.updateBuilding(this.locations[this.locations.findIndex(searchFor => searchFor.id === b.address)], b);
         }
       }
@@ -161,7 +161,7 @@ export class LocationsComponent implements OnInit {
   updateBuilding(location: Address, building: Building) {
     let newLocation = location;
     for (let i = 0; i < newLocation.buildings.length; i++) {
-      if (newLocation.buildings[i].buildingId === building.buildingId) {
+      if (newLocation.buildings[i].id === building.id) {
         newLocation.buildings[i] = building;
         break;
       }
@@ -175,7 +175,7 @@ export class LocationsComponent implements OnInit {
       });
   }
   updateRoom(location: Address, building: Building, room: Room) {
-    room.building = building.buildingId;
+    room.building = building.id;
     this.roomService
       .update(room)
       .subscribe(resp => this.loadRooms());
@@ -191,7 +191,7 @@ export class LocationsComponent implements OnInit {
       });
   }
   deleteBuilding(location: Address, building: Building) {
-    this.buildingService.remove(building.buildingId).subscribe(resp => this.loadBuildings());
+    this.buildingService.remove(building.id).subscribe(resp => this.loadBuildings());
   }
   deleteRoom(location: Address, building: Building, room: Room) {
     this.roomService.remove(room.id).subscribe(resp => this.loadRooms());
@@ -236,7 +236,7 @@ export class LocationsComponent implements OnInit {
   }
   openAddRoomDialog(evt, location: Address, building: Building): void {
     evt.stopPropagation();
-    const room = new Room(null, true, '', building.buildingId, []);
+    const room = new Room(null, true, '', building.id, []);
     const dialogRef = this.dialog.open(LocationAddRoomDialogComponent, {
       width: '450px',
       data: {
@@ -291,7 +291,7 @@ export class LocationsComponent implements OnInit {
   openEditBuildingDialog(evt, location: Address, building: Building): void {
     const original = new Building(
       building.isActive,
-      building.buildingId,
+      building.id,
       building.buildingName,
       building.rooms,
       building.address
@@ -314,7 +314,7 @@ export class LocationsComponent implements OnInit {
         }
       } else {
         for (let buildingIndex = 0; buildingIndex < this.buildings.length; buildingIndex++) {
-          if (this.buildings[buildingIndex].buildingId === building.buildingId) {
+          if (this.buildings[buildingIndex].id === building.id) {
             this.buildings[buildingIndex] = original;
           }
         }
@@ -462,9 +462,9 @@ export class LocationsComponent implements OnInit {
       if (
         item.buildingName === building.buildingName &&
         item.address === building.address &&
-        item.buildingId !== building.buildingId
+        item.id !== building.id
       ) {
-        console.log('building(' + item.buildingId + ') is the duplicate: ' + building.buildingName);
+        console.log('building(' + item.id + ') is the duplicate: ' + building.buildingName);
         unique = false;
         break;
       }

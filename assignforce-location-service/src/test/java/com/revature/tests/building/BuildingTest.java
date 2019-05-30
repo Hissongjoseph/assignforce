@@ -2,9 +2,7 @@ package com.revature.tests.building;
 
 import static org.junit.Assert.*;
 
-import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -15,14 +13,12 @@ import com.revature.assignforce.beans.Location;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.revature.assignforce.beans.Building;
-import com.revature.assignforce.beans.Unavailability;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -59,8 +55,8 @@ public class BuildingTest {
 	public void getSetIdTest() {
 		int id = 96;
 		Building b = new Building();
-		b.setBuildingId(id);
-		assertTrue(b.getBuildingId() == id);
+		b.setId(id);
+		assertTrue(b.getId() == id);
 	}
 	
 	@Test

@@ -1,32 +1,16 @@
 package com.revature.assignforce.beans;
 
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.stereotype.Component;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 
 @Entity
@@ -39,7 +23,7 @@ public class Building {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "buildings")
 	@SequenceGenerator(name = "buildings", sequenceName = "buildings_seq", allocationSize = 1)
 	@Column(name = "BUILDING_ID")
-	private int buildingId;
+	private int id;
 
 	@Column(name = "IS_ACTIVE")
 	private Boolean isActive;
@@ -57,29 +41,29 @@ public class Building {
 	@Column(name="LOCATION_ID")
 	private Integer address;
 
-	@JsonIgnoreProperties
-	@Transient
-	private int id;
+//	@JsonIgnoreProperties
+////	@Transient
+////	private int id;
 
 	public Building() {
 		super();
 	}
 
-	public Building(int buildingId, Boolean isActive, String buildingName, Integer address) {
+	public Building(int id, Boolean isActive, String buildingName, Integer address) {
 		super();
-		this.buildingId = buildingId;
+		this.id = id;
 		this.isActive = isActive;
 		this.buildingName = buildingName;
 		//this.location = location;
 		this.address = address;
 	}
 
-	public int getBuildingId() {
-		return buildingId;
+	public int getId() {
+		return id;
 	}
 
-	public void setBuildingId(int buildingId) {
-		this.buildingId = buildingId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Boolean getIsActive() {

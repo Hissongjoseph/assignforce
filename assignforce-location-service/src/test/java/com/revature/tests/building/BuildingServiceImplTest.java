@@ -77,7 +77,7 @@ public class BuildingServiceImplTest {
         Building b = new Building(id, true,"Business", 6);
         Mockito.when(buildingRepository.save(b)).thenReturn(b);
         Building lTest = buildingService.create(b);
-        assertTrue(lTest.getBuildingId() == id);
+        assertTrue(lTest.getId() == id);
     }
 
     @Test

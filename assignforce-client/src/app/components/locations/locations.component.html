@@ -46,7 +46,7 @@
                   </mat-expansion-panel-header>
 
                   <div style="padding-top: .5%">
-                    <mat-list *ngFor="let room of buildingRooms(building.buildingId)">
+                    <mat-list *ngFor="let room of buildingRooms(building.id)">
                       <mat-list-item>
                         <h4 mat-line>
                           <mat-icon style="color: black">store</mat-icon>{{room.roomName}}</h4>

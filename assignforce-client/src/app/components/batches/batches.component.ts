@@ -146,7 +146,7 @@ export class BatchesComponent implements OnInit, AfterViewInit {
       this.locations.sort((a, b) => a.id - b.id);
       this.buildingService.findAll().subscribe((buildings) => {
         this.buildings = buildings;
-        this.buildings.sort((a, b) => a.buildingId - b.buildingId);
+        this.buildings.sort((a, b) => a.id - b.id);
         this.roomService.findAll().subscribe((rooms) => {
           this.rooms = rooms;
           this.rooms.sort((a, b) => a.id - b.id);
@@ -225,7 +225,7 @@ export class BatchesComponent implements OnInit, AfterViewInit {
       instead of id and name 
     */
     if (entityContainerName === "buildings") {
-      return this[entityContainerName].find((e) => e.buildingId === entityId);
+      return this[entityContainerName].find((e) => e.id === entityId);
     }
 
     return this[entityContainerName].find((e) => e.id === entityId);
@@ -261,8 +261,8 @@ export class BatchesComponent implements OnInit, AfterViewInit {
     if (!this.batchModel.building) return;
 
     this.buildingRooms = [];
-    this.selectedBuilding = this.buildings.find((building) => building.buildingId === this.batchModel.building);
-    this.buildingRooms = this.rooms.filter((room) => room.building === this.selectedBuilding.buildingId);
+    this.selectedBuilding = this.buildings.find((building) => building.id === this.batchModel.building);
+    this.buildingRooms = this.rooms.filter((room) => room.building === this.selectedBuilding.id);
   }
 
   sortTrainers() {

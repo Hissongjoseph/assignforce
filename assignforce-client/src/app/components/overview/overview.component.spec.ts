@@ -98,14 +98,14 @@ const buildingService = {
   findAll: jest.fn().mockImplementation(() => {
     const buildings: Building[] = [
       {
-        "buildingId": 1,
+        "id": 1,
         "isActive": true,
         "buildingName": "11730 Plaza American Drive (HQ)",
         "address": 1,
         "rooms": []
       },
       {
-        "buildingId": 2,
+        "id": 2,
         "isActive": true,
         "buildingName": "ASU Building 1",
         "address": 2,
