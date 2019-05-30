@@ -74,7 +74,7 @@
             <!-- Room Column -->
             <ng-container matColumnDef="room" id="b-room-colum">
               <mat-header-cell *matHeaderCellDef mat-sort-header> Room </mat-header-cell>
-              <mat-cell *matCellDef="let batchObj" class="b-room-cell">{{ findRoom(batchObj.room)?.roomName }}</mat-cell>
+              <mat-cell *matCellDef="let batchObj" class="b-room-cell">{{ findRoom(batchObj.room)?.name }}</mat-cell>
             </ng-container>
   
             <!-- Start Date Column -->

@@ -87,7 +87,7 @@ export class RoomSchedulerComponent implements OnInit{
       } else {
         this.schedule.push({
           capacity: this.filteredRooms[i].capacity,
-          roomName: this.filteredRooms[i].roomName,
+          roomName: this.filteredRooms[i].name,
           week: weekEvents
         })
       }

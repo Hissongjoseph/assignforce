@@ -121,14 +121,14 @@ const roomService = {
     const rooms: Room[] = [
       {
         "id": 7,
-        "roomName": "208",
+        "name": "208",
         "building": 1,
         "active": true,
         "unavailabilities": []
       },
       {
         "id": 1,
-        "roomName": "201",
+        "name": "201",
         "building": 1,
         "active": true,
         "unavailabilities": []
@@ -301,7 +301,7 @@ describe('OverviewComponent', () => {
 
   it('should display the room name in b-room-cell', () => {
     const name = fixture.nativeElement.querySelectorAll('.b-room-cell')[0].textContent;
-    expect(name).toContain(component.roomsList[1].roomName);
+    expect(name).toContain(component.roomsList[1].name);
   });
 
   it('should display the trainer name in b-trainer-cell', () => {

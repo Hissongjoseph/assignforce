@@ -147,7 +147,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
 
       newBatch['location'] = location ? location.name : '';
       newBatch['building'] = building ? building.name : '';
-      newBatch['room'] = room ? room.roomName : '';
+      newBatch['room'] = room ? room.name : '';
 
       newBatch['startDate'] = startDate;
       newBatch['endDate'] = endDate;

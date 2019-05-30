@@ -246,7 +246,7 @@ export class LocationsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result && this.notBlank(room.roomName)) {
+      if (result && this.notBlank(room.name)) {
         this.addRoom(location, building, room);
       }
     });
@@ -322,7 +322,7 @@ export class LocationsComponent implements OnInit {
     });
   }
   openEditRoomDialog(evt, location: Address, building: Building, room: Room): void {
-    const original = new Room(room.id, room.active, room.roomName, room.building, room.unavailabilities);
+    const original = new Room(room.id, room.active, room.name, room.building, room.unavailabilities);
 
     evt.stopPropagation();
     const dialogRef = this.dialog.open(LocationEditRoomDialogComponent, {
@@ -333,14 +333,14 @@ export class LocationsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result && this.notBlank(room.roomName)) {
-        console.log('room(' + room.id + '): ' + room.roomName);
-        console.log('original(' + original.id + '): ' + original.roomName);
+      if (result && this.notBlank(room.name)) {
+        console.log('room(' + room.id + '): ' + room.name);
+        console.log('original(' + original.id + '): ' + original.name);
         if (this.checkRoomUnique(room)) {
-          console.log('updating because ' + room.roomName + ' is unique');
+          console.log('updating because ' + room.name + ' is unique');
           this.updateRoom(location, building, room);
         } else {
-          console.log(room.roomName + ' is not unique');
+          console.log(room.name + ' is not unique');
           this.updateRoom(location, building, original);
           window.alert('A room with the name you changed to already exists');
         }
@@ -399,7 +399,7 @@ export class LocationsComponent implements OnInit {
   }
 
   openEditUnavailibiliyDialog(evt, room: Room): void {
-    const original = new Room(room.id, room.active, room.roomName, room.building, room.unavailabilities);
+    const original = new Room(room.id, room.active, room.name, room.building, room.unavailabilities);
 
     evt.stopPropagation();
 
@@ -425,8 +425,8 @@ export class LocationsComponent implements OnInit {
     let unique = true;
     //ask august how to postpone for asynchronous stuff
     for (let item of this.rooms) {
-      if (item.roomName === room.roomName && item.building === room.building && item.id !== room.id) {
-        console.log('room(' + item.id + ') is the duplicate: ' + room.roomName);
+      if (item.name === room.name && item.building === room.building && item.id !== room.id) {
+        console.log('room(' + item.id + ') is the duplicate: ' + room.name);
         unique = false;
         break;
       }

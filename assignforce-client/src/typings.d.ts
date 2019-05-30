@@ -31,7 +31,7 @@ interface NodeModule {
 //   id: number;
 //   name: string;
 //   roomId: number;
-//   roomName: string;
+//   name: string;
 // }
 //
 // interface Building {
@@ -62,7 +62,7 @@ interface NodeModule {
 // interface Room {
 //   roomID: number;
 //   active: boolean;
-//   roomName: string;
+//   name: string;
 //   building: number;
 //   unavailabilities: Unavailability[];
 // }
