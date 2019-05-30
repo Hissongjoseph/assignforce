@@ -40,7 +40,7 @@ public class SkillTest {
 		assertNotNull(s1);
 	}
 	
-	// This function will test if the getSkillId() method corresponds with the skillId 
+	// This function will test if the getId() method corresponds with the id
 	// that is given when created
 	@Test
 	public void skillTest2() {
@@ -48,27 +48,27 @@ public class SkillTest {
 		String testName = "Swift";
 		boolean testActive = true;
 		Skill s1 = new Skill(testId, testName, testActive);
-		assertTrue("Expected skillId " + testId + ". Got " + s1.getSkillId(), s1.getSkillId() == testId);
-		assertTrue(s1.getSkillName().equals("Swift"));
+		assertTrue("Expected id " + testId + ". Got " + s1.getId(), s1.getId() == testId);
+		assertTrue(s1.getName().equals("Swift"));
 		assertTrue(s1.getIsActive());
 	}
 	
-	// This function is to test if the setSkillId() actually sets the new skillId and overrides 
-	// the previous skillId that is set
+	// This function is to test if the setId() actually sets the new id and overrides
+	// the previous id that is set
 	@Test
 	public void getSetIdTest() {
 		Skill s1 = new Skill();
-		s1.setSkillId(11);
-		assertTrue(s1.getSkillId() == 11);
+		s1.setId(11);
+		assertTrue(s1.getId() == 11);
 	}
 	
-	// This function is to test if the setSkillName() actually sets the new skillName and overrides 
+	// This function is to test if the setName() actually sets the new skillName and overrides
 	// the previous skillName that is set
 	@Test
 	public void getSetNameTest() {
 		Skill s1 = new Skill();
-		s1.setSkillName("JavaScript");
-		assertTrue(s1.getSkillName().equals("JavaScript"));
+		s1.setName("JavaScript");
+		assertTrue(s1.getName().equals("JavaScript"));
 	}
 	
 	// This function is to test if the setIsActive() actually method sets the skill to true 

@@ -256,7 +256,7 @@ export class BatchFormComponent implements OnInit, OnChanges {
     const selectedCurriculum = this.curricula.find(curr => curr.id === selCurrId)
     if(selectedCurriculum) {
       this.filteredSkills = this.allSkills.filter(skill => {
-        return selectedCurriculum.skills.find(cSkill => skill.skillId === cSkill.skillId)
+        return selectedCurriculum.skills.find(cSkill => skill.id === cSkill.id)
       });
     }
   }
@@ -342,7 +342,7 @@ export class BatchFormComponent implements OnInit, OnChanges {
    */
   skillsComparator(a: number, b: Skill) {
     if(b) {
-      return a === b.skillId;
+      return a === b.id;
     }
     return false;
   }

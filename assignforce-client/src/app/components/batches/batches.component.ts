@@ -236,7 +236,7 @@ export class BatchesComponent implements OnInit, AfterViewInit {
     if (!this.batchModel.curriculum) return;
     this.selectedCurriculum = this.batchModel.curriculum;
     this.batchModel.skills = this.selectSkills(this.batchModel.curriculum);
-    this.batchModelSkillArr = this.batchModel.skills.map((skill) => skill.skillId);
+    this.batchModelSkillArr = this.batchModel.skills.map((skill) => skill.id);
 
     if (this.batchMode === BatchMode.Create) {
       this.batchModel.trainer = null;
@@ -279,7 +279,7 @@ export class BatchesComponent implements OnInit, AfterViewInit {
 
       if (trainer.skills.length > 0) {
         skillsMatch = trainer.skills.filter(
-          (tSkill) => curr.skills.findIndex((cSkill) => tSkill.skillId === cSkill.skillId) >= 0
+          (tSkill) => curr.skills.findIndex((cSkill) => tSkill.id === cSkill.id) >= 0
         );
       }
       skillsMapping = Math.floor((skillsMatch.length / Math.max(curr.skills.length, 1)) * 100);

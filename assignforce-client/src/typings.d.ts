@@ -82,7 +82,7 @@ interface NodeModule {
 // }
 //
 // interface Skill {
-//   skillId: number;
+//   id: number;
 //   name: string;
 //   active: boolean;
 // }

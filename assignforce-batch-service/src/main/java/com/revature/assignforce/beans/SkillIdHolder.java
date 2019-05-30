@@ -14,23 +14,23 @@ public class SkillIdHolder {
 
 	@Id
 	@Column(name = "SKILL_ID")
-	private int id;
+	private int skillId;
 
 	public SkillIdHolder() {
 		super();
 	}
 
-	public SkillIdHolder(int id) {
+	public SkillIdHolder(int skillId) {
 		super();
-		this.id = id;
+		this.skillId = skillId;
 	}
 
-	public int getId() {
-		return id;
+	public int getSkillId() {
+		return skillId;
 	}
 
 	public void setSkillID(int skillId) {
-		this.id = skillId;
+		this.skillId = skillId;
 	}
 
 }

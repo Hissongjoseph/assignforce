@@ -150,8 +150,8 @@
 <i>76</i>&nbsp;	@Column(name = &quot;Class_Size&quot;)
 <i>77</i>&nbsp;	@Min(5)
 <i>78</i>&nbsp;	@Max(35)
-<i>79</i>&nbsp;	@NotNull(message=&quot;size cannot be null&quot;)
-<i>80</i>&nbsp;	private Integer size;
+<i>79</i>&nbsp;	@NotNull(message=&quot;classSize cannot be null&quot;)
+<i>80</i>&nbsp;	private Integer classSize;
 <i>81</i>&nbsp;
 <i>82</i>&nbsp;	public Batch() {
 <b class="fc"><i>83</i>&nbsp;		super();</b>
@@ -159,7 +159,7 @@
 <i>85</i>&nbsp;
 <i>86</i>&nbsp;
 <i>87</i>&nbsp;	public Batch(int id, String name, LocalDate startDate, LocalDate endDate, Integer curriculum, Integer trainer,
-<b class="fc"><i>88</i>&nbsp;			Integer cotrainer, Set&lt;SkillIdHolder&gt; skills, Integer location,Integer building, Integer room, Integer size) {</b>
+<b class="fc"><i>88</i>&nbsp;			Integer cotrainer, Set&lt;SkillIdHolder&gt; skills, Integer location,Integer building, Integer room, Integer classSize) {</b>
 <b class="fc"><i>89</i>&nbsp;		this.id = id;</b>
 <b class="fc"><i>90</i>&nbsp;		this.name = name;</b>
 <b class="fc"><i>91</i>&nbsp;		this.startDate = startDate;</b>
@@ -170,7 +170,7 @@
 <b class="fc"><i>96</i>&nbsp;		this.skills = skills;</b>
 <b class="fc"><i>97</i>&nbsp;		this.location = location;</b>
 <b class="fc"><i>98</i>&nbsp;		this.room = room;</b>
-<b class="fc"><i>99</i>&nbsp;		this.size = size;</b>
+<b class="fc"><i>99</i>&nbsp;		this.classSize = classSize;</b>
 <b class="fc"><i>100</i>&nbsp;		System.out.println(this.location);</b>
 <b class="fc"><i>101</i>&nbsp;	}</b>
 <i>102</i>&nbsp;
@@ -263,11 +263,11 @@
 <b class="fc"><i>189</i>&nbsp;	}</b>
 <i>190</i>&nbsp;
 <i>191</i>&nbsp;	public Integer getClassSize() {
-<b class="fc"><i>192</i>&nbsp;		return size;</b>
+<b class="fc"><i>192</i>&nbsp;		return classSize;</b>
 <i>193</i>&nbsp;	}
 <i>194</i>&nbsp;
-<i>195</i>&nbsp;	public void setClassSize(Integer size) {
-<b class="fc"><i>196</i>&nbsp;		this.size = size;</b>
+<i>195</i>&nbsp;	public void setClassSize(Integer classSize) {
+<b class="fc"><i>196</i>&nbsp;		this.classSize = classSize;</b>
 <b class="fc"><i>197</i>&nbsp;	}</b>
 <i>198</i>&nbsp;
 <i>199</i>&nbsp;}

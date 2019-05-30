@@ -75,8 +75,8 @@ public class SkillControllerTest {
 
 	}
 	
-	// This function test whether the getSkillId() returns the correct id associated with the skill
-	// object and that the HTTP status is 'ok' if the getSkillId() method corresponds with skill 
+	// This function test whether the getId() returns the correct id associated with the skill
+	// object and that the HTTP status is 'ok' if the getId() method corresponds with skill
 	// object's id 
 	@Test
 	public void getByIdTestOk() throws Exception {

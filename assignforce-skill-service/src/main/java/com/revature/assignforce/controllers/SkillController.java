@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,7 +51,7 @@ public class SkillController {
 	public ResponseEntity<List<Skill>> getByArray(@RequestBody @Valid SkillsArray arr) {
 		List<Skill> skills = new ArrayList<>();
 		for (Skill skl : arr.getSkills()) {
-			Optional<Skill> temp = skillServ.getSkillById(skl.getSkillId());
+			Optional<Skill> temp = skillServ.getSkillById(skl.getId());
 			if (temp.isPresent()) {
 				skills.add(temp.get());
 			}
@@ -80,7 +79,7 @@ public class SkillController {
 
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Skill> updateSkill(@RequestBody @Validated(Skill.Existing.class) Skill skill) {
-		logger.info("Updating skill ", skill.getSkillName());
+		logger.info("Updating skill ", skill.getName());
 
 		//we are going to assume that we are only deactivating
 		//the skill for now

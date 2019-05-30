@@ -67,8 +67,8 @@ public class SkillServiceImplTest {
     @Autowired
     private SkillsSNSNotificationSender skillsSNSNotificationSender;
 
-    // This function test whether the getSkillId() returns the correct id associated with the skill
-    // object and that the HTTP status is 'ok' if the getSkillId() method corresponds with skill
+    // This function test whether the getId() returns the correct id associated with the skill
+    // object and that the HTTP status is 'ok' if the getId() method corresponds with skill
     // object's id
     @Test
     public void getSkillByIdTest() {
@@ -76,7 +76,7 @@ public class SkillServiceImplTest {
         Optional<Skill> op1 = Optional.ofNullable(s1);
         Mockito.when(skillRepository.findById(2)).thenReturn(op1);
         Optional<Skill> opTest = skillService.getSkillById(2);
-        assertTrue(opTest.get().getSkillId() == 2);
+        assertTrue(opTest.get().getId() == 2);
     }
 
     // This function test if the getAll() method gets all the skill objects that are saved in the Database
@@ -100,7 +100,7 @@ public class SkillServiceImplTest {
         Skill s1 = new Skill(5, "Hibernate", true);
         Mockito.when(skillRepository.save(s1)).thenReturn(s1);
         Skill testSkill = skillService.createSkill(s1);
-        assertTrue(testSkill.getSkillId() == 5);
+        assertTrue(testSkill.getId() == 5);
     }
 
     // This function test to see if the updateSkill() method updates the skill from not active, to
