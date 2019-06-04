@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM" />
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/assignforce-batch-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assignforce-config-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assignforce-curriculum-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assignforce-filehandler-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assignforce-gateway-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assignforce-location-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assignforce-resource-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assignforce-settings-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assignforce-skill-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assignforce-trainer-service" charset="UTF-8" />
+  </component>
 </project>

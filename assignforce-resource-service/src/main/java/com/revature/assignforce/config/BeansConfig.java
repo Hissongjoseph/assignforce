@@ -1,9 +1,11 @@
 package com.revature.assignforce.config;
 
+import com.amazonaws.services.sns.AmazonSNS;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.assignforce.service.CurriculumService;
 import com.revature.assignforce.service.CurriculumServiceImpl;
+import org.springframework.cloud.aws.messaging.core.NotificationMessagingTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,5 +19,10 @@ public class BeansConfig {
     @Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    }
+
+    @Bean
+    public NotificationMessagingTemplate notificationMessagingTemplate(AmazonSNS amazonSNS) {
+        return new NotificationMessagingTemplate(amazonSNS);
     }
 }
