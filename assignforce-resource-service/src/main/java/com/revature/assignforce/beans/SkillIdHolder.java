@@ -29,7 +29,7 @@ public class SkillIdHolder {
 		return id;
 	}
 
-	public void setSkillID(int skillId) {
+	public void setId(int skillId) {
 		this.id = skillId;
 	}
 
