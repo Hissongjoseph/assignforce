@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Building {
 
-	// Building_ID, Building_Name, Location_ID, Unavailability
+	// Building_ID, Building_Name, Location_ID, LocationUnavailability
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "buildings")
 	@SequenceGenerator(name = "buildings", sequenceName = "buildings_seq", allocationSize = 1)

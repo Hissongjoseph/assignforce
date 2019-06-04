@@ -91,7 +91,7 @@ public class BuildingTest {
 	
 /*	@Test
 	public void getSetRoomsTest() {
-		Set<Unavailability> testSet = new TreeSet<Unavailability>();
+		Set<LocationUnavailability> testSet = new TreeSet<LocationUnavailability>();
 		Room r1 = new Room(1, "Class A", testSet);
 		Room r2 = new Room(2, "Class B", testSet);
 		Room r3 = new Room(3, "Class C", testSet);

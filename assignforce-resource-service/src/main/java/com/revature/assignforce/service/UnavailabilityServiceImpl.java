@@ -1,6 +1,6 @@
 package com.revature.assignforce.service;
 
-import com.revature.assignforce.beans.Unavailability;
+import com.revature.assignforce.beans.LocationUnavailability;
 import com.revature.assignforce.repos.UnavailabilityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,22 +20,22 @@ public class UnavailabilityServiceImpl  implements UnavailabilityService {
 
 
 	@Override
-	public List<Unavailability> getAll() {
+	public List<LocationUnavailability> getAll() {
 		return unavailabilityRepository.findAll();
 	}
 	
 	
 	@Override
-	public Optional<Unavailability> findById(int id) {
+	public Optional<LocationUnavailability> findById(int id) {
 		return unavailabilityRepository.findById(id);
 	}
 	@Override
-	public Unavailability update(Unavailability t) {
+	public LocationUnavailability update(LocationUnavailability t) {
 		return unavailabilityRepository.save(t);
 	}
 
 	@Override
-	public Unavailability create(Unavailability t) {
+	public LocationUnavailability create(LocationUnavailability t) {
 		return unavailabilityRepository.save(t);
 	}
 
@@ -44,13 +44,13 @@ public class UnavailabilityServiceImpl  implements UnavailabilityService {
 		unavailabilityRepository.deleteById(id);
 	}
 	
-	public Unavailability addUnavailability(Unavailability t) {
+	public LocationUnavailability addUnavailability(LocationUnavailability t) {
 //		Room theRoom = (roomService.findById(roomId).orElse(null));
 		return create(t);
 
 	}
 	
-	public Unavailability updateUnavailability(Unavailability t) {
+	public LocationUnavailability updateUnavailability(LocationUnavailability t) {
 //		Room theRoom = (roomService.findById(roomId).orElse(null));
 		return update(t);
 		
