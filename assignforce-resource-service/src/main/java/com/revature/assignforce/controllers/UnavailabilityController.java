@@ -1,6 +1,6 @@
 package com.revature.assignforce.controllers;
 
-import com.revature.assignforce.beans.Unavailability;
+import com.revature.assignforce.beans.LocationUnavailability;
 import com.revature.assignforce.service.RoomService;
 import com.revature.assignforce.service.UnavailabilityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class UnavailabilityController {
 
 	// findAll
 	@GetMapping
-	public List<Unavailability> getAll() {
+	public List<LocationUnavailability> getAll() {
 		
 		
 		
@@ -31,24 +31,24 @@ public class UnavailabilityController {
 
 	// findOne
 	@GetMapping(value = "{id}")
-	public ResponseEntity<Unavailability> getById(@PathVariable("id") int id) {
+	public ResponseEntity<LocationUnavailability> getById(@PathVariable("id") int id) {
 		
 		
-		Optional<Unavailability> a = unavailabilityService.findById(id);
+		Optional<LocationUnavailability> a = unavailabilityService.findById(id);
 		if (!a.isPresent())
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		return new ResponseEntity<>(a.get(), HttpStatus.OK);
 	}
 
 	/** create, also need to send room id through the url because we cannot set the room field in 
-	Unavailability (because the room field is updatable=false and insertable=false), the only possible way is to
+	LocationUnavailability (because the room field is updatable=false and insertable=false), the only possible way is to
 	 set the roomObject to finding the room by id and then setting roomObject to the object returned (which will also change the room 
-	field in Unavailability to the primary key of the room) 
+	field in LocationUnavailability to the primary key of the room)
 	*/
 	@PostMapping
-	public ResponseEntity<Unavailability> add(@RequestBody Unavailability a) {
+	public ResponseEntity<LocationUnavailability> add(@RequestBody LocationUnavailability a) {
 	
-		//find by room to add to Unavailability object
+		//find by room to add to LocationUnavailability object
 		
 		a = unavailabilityService.addUnavailability(a);
 		if (a == null)
@@ -57,7 +57,7 @@ public class UnavailabilityController {
 	}
 
 	@PutMapping(value = "{uaId}")
-	public ResponseEntity<Unavailability> update(@PathVariable("uaId") int uaId, @RequestBody Unavailability a) {
+	public ResponseEntity<LocationUnavailability> update(@PathVariable("uaId") int uaId, @RequestBody LocationUnavailability a) {
 		a = unavailabilityService.update(a);
 		if (a == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -66,7 +66,7 @@ public class UnavailabilityController {
 
 	// delete
 	@DeleteMapping(value = "{id}")
-	public ResponseEntity<Unavailability> delete(@PathVariable("id") int id) {
+	public ResponseEntity<LocationUnavailability> delete(@PathVariable("id") int id) {
 		unavailabilityService.delete(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

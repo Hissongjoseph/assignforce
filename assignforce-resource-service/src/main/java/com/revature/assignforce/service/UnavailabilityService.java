@@ -1,6 +1,6 @@
 package com.revature.assignforce.service;
 
-import com.revature.assignforce.beans.Unavailability;
+import com.revature.assignforce.beans.LocationUnavailability;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,19 +8,19 @@ import java.util.Optional;
 public interface UnavailabilityService {
 	
 
-	List<Unavailability> getAll();
+	List<LocationUnavailability> getAll();
 
-	Optional<Unavailability> findById(int id);
+	Optional<LocationUnavailability> findById(int id);
 
-	Unavailability update(Unavailability t);
+	LocationUnavailability update(LocationUnavailability t);
 
-	Unavailability create(Unavailability t);
+	LocationUnavailability create(LocationUnavailability t);
 
 	void delete(int id);
 	
-	public Unavailability addUnavailability(Unavailability t);
+	public LocationUnavailability addUnavailability(LocationUnavailability t);
 	
-	public Unavailability updateUnavailability(Unavailability t);
+	public LocationUnavailability updateUnavailability(LocationUnavailability t);
 
 
 }

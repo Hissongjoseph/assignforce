@@ -6,16 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="assign-force-filehandler-service" />
-        <module name="assignforce-resource-service" />
-        <module name="AssignForceBatchService" />
         <module name="AssignForceCurr" />
-        <module name="AssignForceLocationService" />
-        <module name="AssignForceSettingService" />
-        <module name="AssignForceSkillService" />
         <module name="AssignForceTrainerService" />
-        <module name="config-server" />
+        <module name="AssignForceSettingService" />
         <module name="GatewayServer" />
+        <module name="AssignForceBatchService" />
+        <module name="assignforce-resource-service" />
+        <module name="AssignForceLocationService" />
+        <module name="assign-force-filehandler-service" />
+        <module name="config-server" />
+        <module name="AssignForceSkillService" />
       </profile>
     </annotationProcessing>
   </component>
