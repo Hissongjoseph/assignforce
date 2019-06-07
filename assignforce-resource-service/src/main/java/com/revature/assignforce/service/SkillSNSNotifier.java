@@ -2,7 +2,7 @@ package com.revature.assignforce.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.assignforce.SkillsNotifierBean;
+import com.revature.assignforce.beans.SkillsNotifierBean;
 import org.springframework.cloud.aws.messaging.core.NotificationMessagingTemplate;
 
 public interface SkillSNSNotifier {

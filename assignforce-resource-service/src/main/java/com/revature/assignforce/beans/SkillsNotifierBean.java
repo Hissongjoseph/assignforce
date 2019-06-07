@@ -1,4 +1,4 @@
-package com.revature.assignforce;
+package com.revature.assignforce.beans;
 
 public class SkillsNotifierBean {
     private int skillId;

@@ -1,6 +1,6 @@
 package com.revature.assignforce.service;
 
-import com.revature.assignforce.SkillsNotifierBean;
+import com.revature.assignforce.beans.SkillsNotifierBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.aws.messaging.core.NotificationMessagingTemplate;
