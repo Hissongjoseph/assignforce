@@ -1,4 +1,4 @@
-package com.revature.assignforce.repository;
+package com.revature.assignforce.repos;
 
 import com.revature.assignforce.beans.Skill;
 import org.springframework.data.jpa.repository.JpaRepository;
