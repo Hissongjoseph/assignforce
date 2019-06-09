@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.revature.assignforce.beans.Batch;
 
 @Repository
-public interface BatchRepository extends JpaRepository<Batch, Integer>{
+public interface BatchRepo extends JpaRepository<Batch, Integer>{
 
 	public List<Batch> findByCurriculum(Integer id);
 	

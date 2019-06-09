@@ -2,7 +2,7 @@ package com.revature.testing;
 
 
 import com.revature.assignforce.beans.Room;
-import com.revature.assignforce.repos.RoomRepository;
+import com.revature.assignforce.repos.RoomRepo;
 import com.revature.assignforce.service.RoomService;
 import com.revature.assignforce.service.RoomServiceImpl;
 import org.junit.Test;
@@ -30,13 +30,13 @@ public class RoomServiceImplTest {
         @Bean
         public RoomService RoomService(){return new RoomServiceImpl();}
         @Bean
-        public RoomRepository RoomRepository(){return Mockito.mock(RoomRepository.class);}
+        public RoomRepo RoomRepository(){return Mockito.mock(RoomRepo.class);}
     }
 
     @Autowired
     private RoomService roomService;
     @Autowired
-    private RoomRepository roomRepository;
+    private RoomRepo roomRepo;
 
     @Test
     public void getAllTest() {
@@ -45,7 +45,7 @@ public class RoomServiceImplTest {
         List<Room> roomList = new ArrayList<>();
         roomList.add(r1);
         roomList.add(r2);
-        Mockito.when(roomRepository.findAll()).thenReturn(roomList);
+        Mockito.when(roomRepo.findAll()).thenReturn(roomList);
         List<Room> testList = roomService.getAll();
         assertEquals(2, testList.size());
     }
@@ -56,7 +56,7 @@ public class RoomServiceImplTest {
         int id = 4;
         Room r = new Room(id, name, 2);
         Optional<Room> op1 = Optional.ofNullable(r);
-        Mockito.when(roomRepository.findById(id)).thenReturn(op1);
+        Mockito.when(roomRepo.findById(id)).thenReturn(op1);
         Optional<Room> lTest = roomService.findById(id);
         assertEquals(name, lTest.get().getName());
     }
@@ -66,7 +66,7 @@ public class RoomServiceImplTest {
         String change = "HR Office";
         Room r = new Room(4, "HR", 1);
         r.setName(change);
-        Mockito.when(roomRepository.save(r)).thenReturn(r);
+        Mockito.when(roomRepo.save(r)).thenReturn(r);
         Room lTest = roomService.update(r);
         assertEquals(change, lTest.getName());
     }
@@ -75,7 +75,7 @@ public class RoomServiceImplTest {
     public void createTest() {
         int id = 5;
         Room r = new Room(id,"Planning", 6);
-        Mockito.when(roomRepository.save(r)).thenReturn(r);
+        Mockito.when(roomRepo.save(r)).thenReturn(r);
         Room lTest = roomService.create(r);
         assertEquals(id, lTest.getId());
     }
@@ -83,7 +83,7 @@ public class RoomServiceImplTest {
     @Test
     public void deleteTest() {
         int id = 8;
-        Mockito.doNothing().when(roomRepository).deleteById(id);
+        Mockito.doNothing().when(roomRepo).deleteById(id);
         roomService.delete(id);
         Optional<Room> opTest = roomService.findById(id);
         assertFalse(opTest.isPresent());

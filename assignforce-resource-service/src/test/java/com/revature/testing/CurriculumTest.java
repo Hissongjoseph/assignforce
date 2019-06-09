@@ -1,4 +1,4 @@
-package com.revature.assignforce.tests;
+package com.revature.testing;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,6 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,9 +15,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.revature.assignforce.beans.Curriculum;
 import com.revature.assignforce.beans.SkillIdHolder;
-import com.revature.assignforce.repos.CurriculumRepo;
-import com.revature.assignforce.service.CurriculumService;
-import com.revature.assignforce.service.CurriculumServiceImpl;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

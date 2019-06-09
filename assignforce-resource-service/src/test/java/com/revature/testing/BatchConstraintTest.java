@@ -12,29 +12,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import static org.junit.Assert.assertFalse;
-
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Set;
-
-import javax.validation.ConstraintViolation;
-
-import org.junit.Test;
 
 import com.revature.assignforce.beans.Batch;
 import com.revature.assignforce.beans.SkillIdHolder;
-
-
-
-
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-
-import org.junit.Before;
-
 
 /**
  * the BatchConstraintTest program checks that the validators on the Batch bean function as expected

@@ -1,7 +1,7 @@
 package com.revature.assignforce.service;
 
 import com.revature.assignforce.beans.Settings;
-import com.revature.assignforce.repos.SettingsRepository;
+import com.revature.assignforce.repos.SettingsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.Optional;
 public class SettingsServiceImpl implements SettingsService {
 
 	@Autowired
-	private SettingsRepository batchRepository;
+	private SettingsRepo batchRepository;
 	
 	@Override
 	public List<Settings> getAll() {

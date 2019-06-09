@@ -2,7 +2,7 @@ package com.revature.testing;
 
 import com.revature.assignforce.beans.Location;
 import com.revature.assignforce.controllers.LocationController;
-import com.revature.assignforce.repos.LocationRepository;
+import com.revature.assignforce.repos.LocationRepo;
 import com.revature.assignforce.service.LocationService;
 import com.revature.assignforce.service.LocationServiceImpl;
 import org.junit.Test;
@@ -33,8 +33,8 @@ public class LocationControllerTest {
 		return new LocationServiceImpl();
 		}
 	@Bean
-	public LocationRepository LocationRepository() {
-		return Mockito.mock(LocationRepository.class);
+	public LocationRepo LocationRepository() {
+		return Mockito.mock(LocationRepo.class);
 		}
 	@Bean
 	public LocationController LocationController() {
@@ -43,7 +43,7 @@ public class LocationControllerTest {
 	}
 	
 	@Autowired
-	private LocationRepository locationRepository;
+	private LocationRepo locationRepo;
 	@Autowired
 	private LocationController locationController;
 	
@@ -56,7 +56,7 @@ public class LocationControllerTest {
 		locationList.add(l1);
 		locationList.add(l2);
 		locationList.add(l3);
-		Mockito.when(locationRepository.findAll()).thenReturn(locationList);
+		Mockito.when(locationRepo.findAll()).thenReturn(locationList);
 		List<Location> testList = locationController.getAll();
 		assertTrue(testList.size() == 3);
 	}
@@ -66,7 +66,7 @@ public class LocationControllerTest {
 		int id = 5;
 		Location l = new Location(id, "Reston", "Reston", "VA", true);
 		Optional<Location> op = Optional.ofNullable(l);
-		Mockito.when(locationRepository.findById(id)).thenReturn(op);
+		Mockito.when(locationRepo.findById(id)).thenReturn(op);
 		ResponseEntity<Location> reTest = locationController.getById(id);
 		assertTrue(reTest.getBody().getId() == id && reTest.getStatusCode() == HttpStatus.OK);
 	}
@@ -81,7 +81,7 @@ public class LocationControllerTest {
 	public void addTestCreated() {
 		int id = 8;
 		Location l = new Location(id, "San Diego", "San Diego", "CA", true);
-		Mockito.when(locationRepository.save(l)).thenReturn(l);
+		Mockito.when(locationRepo.save(l)).thenReturn(l);
 		ResponseEntity<Location> reTest = locationController.add(l);
 		assertTrue(reTest.getBody().getId() == id && reTest.getStatusCode() == HttpStatus.CREATED);
 	}
@@ -100,7 +100,7 @@ public class LocationControllerTest {
 		l.setCity("Phoenix");
 		l.setName("Phoenix");
 		l.setState(state);
-		Mockito.when(locationRepository.save(l)).thenReturn(l);
+		Mockito.when(locationRepo.save(l)).thenReturn(l);
 		ResponseEntity<Location> reTest = locationController.update(l);
 		assertTrue(reTest.getBody().getState().equals(state) && reTest.getStatusCode() == HttpStatus.CREATED);
 	}
@@ -117,7 +117,7 @@ public class LocationControllerTest {
 	
 	@Test
 	public void deleteTest() {
-		Mockito.doNothing().when(locationRepository).deleteById(25);
+		Mockito.doNothing().when(locationRepo).deleteById(25);
 		ResponseEntity<Location> reTest = locationController.delete(25);
 		assertTrue(reTest.getStatusCode() == HttpStatus.OK);
 	}

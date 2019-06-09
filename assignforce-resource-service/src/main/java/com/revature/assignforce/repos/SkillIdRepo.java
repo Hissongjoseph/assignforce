@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.revature.assignforce.beans.SkillIdHolder;
 
 @Repository
-public interface SkillRepository extends JpaRepository<SkillIdHolder, Integer>{
+public interface SkillIdRepo extends JpaRepository<SkillIdHolder, Integer>{
 
 }

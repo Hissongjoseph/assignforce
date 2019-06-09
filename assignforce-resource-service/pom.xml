@@ -21,15 +21,13 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-aws-messaging</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-aws-autoconfigure</artifactId>
+            <version>2.1.1.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>2.1.5.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -102,17 +100,22 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
+            <version>2.1.2.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.hynnet/oracle-driver-ojdbc_g -->
         <dependency>
             <groupId>com.hynnet</groupId>
             <artifactId>oracle-driver-ojdbc_g</artifactId>
             <version>12.1.0.2</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-openfeign-core</artifactId>
@@ -133,15 +136,12 @@
             <artifactId>spring-cloud-aws-messaging</artifactId>
             <version>2.0.0.RELEASE</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-aws-messaging</artifactId>
-            <version>2.0.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-aws-messaging</artifactId>
-            <version>2.0.0.RELEASE</version>
+            <artifactId>spring-cloud-starter</artifactId>
+            <version>2.1.1.RELEASE</version>
         </dependency>
     </dependencies>
 

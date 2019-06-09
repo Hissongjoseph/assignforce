@@ -2,7 +2,7 @@ package com.revature.testing;
 
 import com.amazonaws.services.sns.AmazonSNS;
 import com.revature.assignforce.beans.Skill;
-import com.revature.assignforce.repository.SkillRepository;
+import com.revature.assignforce.repos.SkillRepo;
 import com.revature.assignforce.service.SkillService;
 import com.revature.assignforce.service.SkillServiceImpl;
 import com.revature.assignforce.service.SkillsSNSNotificationSender;
@@ -52,15 +52,15 @@ public class SkillServiceImplTest {
         }
 
         @Bean
-        public SkillRepository SkillRepository() {
-            return Mockito.mock(SkillRepository.class);
+        public SkillRepo SkillRepository() {
+            return Mockito.mock(SkillRepo.class);
         }
     }
 
     @Autowired
     private SkillService skillService;
     @Autowired
-    private SkillRepository skillRepository;
+    private SkillRepo skillRepo;
 
     @Autowired
     private SkillsSNSNotificationSender skillsSNSNotificationSender;
@@ -72,7 +72,7 @@ public class SkillServiceImplTest {
     public void getSkillByIdTest() {
         Skill s1 = new Skill(2, "Spring", true);
         Optional<Skill> op1 = Optional.ofNullable(s1);
-        Mockito.when(skillRepository.findById(2)).thenReturn(op1);
+        Mockito.when(skillRepo.findById(2)).thenReturn(op1);
         Optional<Skill> opTest = skillService.getSkillById(2);
         assertTrue(opTest.get().getId() == 2);
     }
@@ -87,7 +87,7 @@ public class SkillServiceImplTest {
         skillList.add(s1);
         skillList.add(s2);
         skillList.add(s3);
-        Mockito.when(skillRepository.findAll()).thenReturn(skillList);
+        Mockito.when(skillRepo.findAll()).thenReturn(skillList);
         List<Skill> testList = skillService.getAll();
         assertTrue(testList.size() == 3);
     }
@@ -96,7 +96,7 @@ public class SkillServiceImplTest {
     @Test
     public void createSkillTest() {
         Skill s1 = new Skill(5, "Hibernate", true);
-        Mockito.when(skillRepository.save(s1)).thenReturn(s1);
+        Mockito.when(skillRepo.save(s1)).thenReturn(s1);
         Skill testSkill = skillService.createSkill(s1);
         assertTrue(testSkill.getId() == 5);
     }
@@ -107,7 +107,7 @@ public class SkillServiceImplTest {
     public void updateSkillTest() {
         Skill s1 = new Skill(5, "Hibernate", true);
         s1.setIsActive(false);
-        Mockito.when(skillRepository.save(s1)).thenReturn(s1);
+        Mockito.when(skillRepo.save(s1)).thenReturn(s1);
         Skill testSkill = skillService.updateSkill(s1);
         assertFalse(testSkill.getIsActive());
     }
@@ -116,8 +116,8 @@ public class SkillServiceImplTest {
     // corresponding id, returns false if it does not delete
     @Test
     public void deleteSkillTest() {
-        Mockito.doNothing().when(skillRepository).deleteById(7);
+        Mockito.doNothing().when(skillRepo).deleteById(7);
         skillService.deleteSkill(7);
-        Mockito.verify(skillRepository, times(1)).deleteById(7);
+        Mockito.verify(skillRepo, times(1)).deleteById(7);
     }
 }

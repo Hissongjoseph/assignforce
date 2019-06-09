@@ -1,7 +1,7 @@
 package com.revature.assignforce.service;
 
 import com.revature.assignforce.beans.Building;
-import com.revature.assignforce.repos.BuildingRepository;
+import com.revature.assignforce.repos.BuildingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,30 +13,30 @@ public class BuildingServiceImpl implements BuildingService {
 
 	
 	@Autowired
-	private BuildingRepository buildingRepository;
+	private BuildingRepo buildingRepo;
 
 	@Override
 	public List<Building> getAll() {
-		return buildingRepository.findAll();
+		return buildingRepo.findAll();
 	}
 
 	@Override
 	public Optional<Building> findById(int id) {
-		return buildingRepository.findById(id);
+		return buildingRepo.findById(id);
 	}
 
 	@Override
 	public Building update(Building t) {
-		return buildingRepository.save(t);
+		return buildingRepo.save(t);
 	}
 
 	@Override
 	public Building create(Building t) {
-		return buildingRepository.save(t);
+		return buildingRepo.save(t);
 	}
 
 	@Override
 	public void delete(int id) {
-		buildingRepository.deleteById(id);
+		buildingRepo.deleteById(id);
 	}
 }

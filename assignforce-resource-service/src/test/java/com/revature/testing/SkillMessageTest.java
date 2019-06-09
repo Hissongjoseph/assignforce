@@ -1,4 +1,4 @@
-package com.revature.assignforce.tests;
+package com.revature.testing;
 
 import com.revature.assignforce.beans.SkillMessage;
 import org.junit.Test;

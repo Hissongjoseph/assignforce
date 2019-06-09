@@ -4,7 +4,6 @@ package com.revature.testing;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
@@ -15,7 +14,7 @@ import com.revature.assignforce.commands.FindLocationCommand;
 import com.revature.assignforce.commands.FindSkillsCommand;
 import com.revature.assignforce.commands.FindTrainerCommand;
 import com.revature.assignforce.controllers.BatchController;
-import com.revature.assignforce.repos.SkillRepository;
+import com.revature.assignforce.repos.SkillIdRepo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -27,7 +26,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.revature.assignforce.beans.Batch;
 import com.revature.assignforce.beans.SkillIdHolder;
-import com.revature.assignforce.repos.BatchRepository;
+import com.revature.assignforce.repos.BatchRepo;
 import com.revature.assignforce.service.BatchService;
 import com.revature.assignforce.service.BatchServiceImpl;
 
@@ -43,8 +42,8 @@ public class BatchServiceImplTest {
             }
 
             @Bean
-            public BatchRepository batchRepository() {
-                return Mockito.mock(BatchRepository.class);
+            public BatchRepo batchRepository() {
+                return Mockito.mock(BatchRepo.class);
             }
 
             @Bean
@@ -53,8 +52,8 @@ public class BatchServiceImplTest {
             }
 
             @Bean
-            public SkillRepository skillRepository() {
-                return Mockito.mock(SkillRepository.class);
+            public SkillIdRepo skillRepository() {
+                return Mockito.mock(SkillIdRepo.class);
             }
 
             @Bean
@@ -79,7 +78,7 @@ public class BatchServiceImplTest {
         }
 
         @Autowired
-        private BatchRepository batchRepository;
+        private BatchRepo batchRepo;
         @Autowired
         private BatchController batchController;
         @Autowired
@@ -93,7 +92,7 @@ public class BatchServiceImplTest {
         @Autowired
 		private BatchService batchService;
         @Autowired
-		private SkillRepository skillRepository;
+		private SkillIdRepo skillIdRepo;
 
 	
 	@Test
@@ -114,7 +113,7 @@ public class BatchServiceImplTest {
 		List<Batch> batchList = new ArrayList<Batch>();
 		batchList.add(b1);
 		batchList.add(b2);
-		Mockito.when(batchRepository.findAll()).thenReturn(batchList);
+		Mockito.when(batchRepo.findAll()).thenReturn(batchList);
 		
 		List<Batch> testList = batchService.getAll();
         System.out.println(testList.size());
@@ -139,7 +138,7 @@ public class BatchServiceImplTest {
 		List<Batch> batchList = new ArrayList<Batch>();
 		batchList.add(b1);
 		batchList.add(b2);
-		Mockito.when(batchRepository.findByCurriculum(3)).thenReturn(batchList);
+		Mockito.when(batchRepo.findByCurriculum(3)).thenReturn(batchList);
 
 		List<Batch> testList = batchService.getAllByCurriculum(3);
 		System.out.println(testList.size());
@@ -164,7 +163,7 @@ public class BatchServiceImplTest {
 		List<Batch> batchList = new ArrayList<Batch>();
 		batchList.add(b1);
 		batchList.add(b2);
-		Mockito.when(batchRepository.findByTrainer(6)).thenReturn(batchList);
+		Mockito.when(batchRepo.findByTrainer(6)).thenReturn(batchList);
 
 		List<Batch> testList = batchService.getAllByTrainer(6);
 		testList.remove(1);
@@ -190,7 +189,7 @@ public class BatchServiceImplTest {
 		List<Batch> batchList = new ArrayList<Batch>();
 		batchList.add(b1);
 		batchList.add(b2);
-		Mockito.when(batchRepository.findByLocation(1)).thenReturn(batchList);
+		Mockito.when(batchRepo.findByLocation(1)).thenReturn(batchList);
 
 		List<Batch> testList = batchService.getAllByLocation(1);
 		System.out.println(testList.size());
@@ -212,7 +211,7 @@ public class BatchServiceImplTest {
 		skillSet.add(s5);
 		Batch b1 = new Batch(1, "Microservices", LocalDate.of(2018, 12, 5), LocalDate.of(2019, 1, 5),3, 6, 5, skillSet,1,1, 1, 1);
 		Optional<Batch> op1 = Optional.ofNullable(b1);
-		Mockito.when(batchRepository.findById(1)).thenReturn(op1);
+		Mockito.when(batchRepo.findById(1)).thenReturn(op1);
 		
 		Optional<Batch> opTest = batchService.findById(1);
 		assertTrue(opTest.get().getName().equals("Microservices"));
@@ -233,7 +232,7 @@ public class BatchServiceImplTest {
 		skillSet.add(s5);
 		Batch b1 = new Batch(1, "Microservices", LocalDate.of(2018, 12, 5), LocalDate.of(2019, 1, 5), 3, 6, 5, skillSet, 1,1,1, 1);
 		b1.setEndDate(LocalDate.of(2019, 1, 6));
-		Mockito.when(batchRepository.save(b1)).thenReturn(b1);
+		Mockito.when(batchRepo.save(b1)).thenReturn(b1);
 		
 		Batch batchTest = batchService.update(b1);
 		assertTrue(batchTest.getEndDate().equals(LocalDate.of(2019, 1, 6)));
@@ -253,16 +252,16 @@ public class BatchServiceImplTest {
 		skillSet.add(s4);
 		skillSet.add(s5);
 		Batch b1 = new Batch(1, "Microservices",LocalDate.of(2018, 12, 5), LocalDate.of(2019, 1, 5), 3, 1, 5, skillSet, 1,1,1, 1);
-		Mockito.when(batchRepository.save(b1)).thenReturn(b1);
+		Mockito.when(batchRepo.save(b1)).thenReturn(b1);
 
-		Batch batchTest = batchRepository.save(b1);
+		Batch batchTest = batchRepo.save(b1);
         System.out.println("Skill size is " + skillSet.size());
 		assertTrue(batchTest.getSkills().size() == 5);
 	}
 	
 	@Test
 	public void deleteNullTest() {
-		Mockito.doNothing().when(batchRepository).deleteById(20);
+		Mockito.doNothing().when(batchRepo).deleteById(20);
 		batchService.delete(20);
 		Optional<Batch> batchTest = batchService.findById(20);
 		assertFalse(batchTest.isPresent());
@@ -282,12 +281,12 @@ public class BatchServiceImplTest {
 		skillSet.add(s4);
 		skillSet.add(s5);
 		Batch b1 = new Batch(20, "Microservices",LocalDate.of(2018, 12, 5), LocalDate.of(2019, 1, 5), 3, 6, 5, skillSet, 1,1,1, 1);
-		Mockito.when(batchRepository.save(b1)).thenReturn(b1);
-		batchRepository.save(b1);
+		Mockito.when(batchRepo.save(b1)).thenReturn(b1);
+		batchRepo.save(b1);
 //		batchService.create(b1);
 	//deleting batch
-		Mockito.doNothing().when(batchRepository).deleteById(20);
-		batchRepository.deleteById(b1.getId());
+		Mockito.doNothing().when(batchRepo).deleteById(20);
+		batchRepo.deleteById(b1.getId());
 //		batchService.delete(b1.getId());
 		Optional<Batch> batchTest1 = batchService.findById(20);
 		assertFalse(batchTest1.isPresent());

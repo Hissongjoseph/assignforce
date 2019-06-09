@@ -2,8 +2,8 @@ package com.revature.testing;
 
 import com.revature.assignforce.beans.LocationUnavailability;
 import com.revature.assignforce.beans.Room;
-import com.revature.assignforce.repos.RoomRepository;
-import com.revature.assignforce.repos.UnavailabilityRepository;
+import com.revature.assignforce.repos.RoomRepo;
+import com.revature.assignforce.repos.UnavailabilityRepo;
 import com.revature.assignforce.service.RoomService;
 import com.revature.assignforce.service.RoomServiceImpl;
 import com.revature.assignforce.service.UnavailabilityService;
@@ -34,21 +34,21 @@ public class LocationUnavailabilityServiceImplTest {
         @Bean
         public RoomService RoomService(){return new RoomServiceImpl();}
         @Bean
-        public RoomRepository RoomRepository(){return Mockito.mock(RoomRepository.class);}
+        public RoomRepo RoomRepository(){return Mockito.mock(RoomRepo.class);}
         @Bean
         public UnavailabilityService UnavailabilityService(){return new UnavailabilityServiceImpl();}
         @Bean
-        public UnavailabilityRepository UnavailabilityRepository(){return Mockito.mock(UnavailabilityRepository.class);}
+        public UnavailabilityRepo UnavailabilityRepository(){return Mockito.mock(UnavailabilityRepo.class);}
     }
 
     @Autowired
     private RoomService roomService;
     @Autowired
-    private RoomRepository roomRepository;
+    private RoomRepo roomRepo;
     @Autowired
     private UnavailabilityService unavailabilityService;
     @Autowired
-    private UnavailabilityRepository unavailabilityRepository;
+    private UnavailabilityRepo unavailabilityRepo;
 
     @Test
     public void getAllTest() {
@@ -59,7 +59,7 @@ public class LocationUnavailabilityServiceImplTest {
         List<LocationUnavailability> locationUnavailabilityList = new ArrayList<>();
         locationUnavailabilityList.add(u1);
         locationUnavailabilityList.add(u2);
-        Mockito.when(unavailabilityRepository.findAll()).thenReturn(locationUnavailabilityList);
+        Mockito.when(unavailabilityRepo.findAll()).thenReturn(locationUnavailabilityList);
         List<LocationUnavailability> testList = unavailabilityService.getAll();
         assertEquals(2, testList.size());
     }
@@ -68,7 +68,7 @@ public class LocationUnavailabilityServiceImplTest {
     public void findByIdTest() {
         LocationUnavailability u1 = new LocationUnavailability(1, "Java", LocalDate.parse("2018-08-16"), LocalDate.parse("2018-06-11"), 5);
         Optional<LocationUnavailability> op1 = Optional.ofNullable(u1);
-        Mockito.when(unavailabilityRepository.findById(4)).thenReturn(op1);
+        Mockito.when(unavailabilityRepo.findById(4)).thenReturn(op1);
         Optional<LocationUnavailability> lTest = unavailabilityService.findById(4);
         assertEquals("Java", lTest.get().getDescription());
     }
@@ -77,7 +77,7 @@ public class LocationUnavailabilityServiceImplTest {
     public void updateTest() {
         LocationUnavailability u1 = new LocationUnavailability(1, "Java", LocalDate.parse("2018-08-16"), LocalDate.parse("2018-06-11"), 5);
         u1.setDescription(".net");
-        Mockito.when(unavailabilityRepository.save(u1)).thenReturn(u1);
+        Mockito.when(unavailabilityRepo.save(u1)).thenReturn(u1);
         LocationUnavailability lTest = unavailabilityService.update(u1);
         assertEquals(".net", lTest.getDescription());
     }
@@ -85,14 +85,14 @@ public class LocationUnavailabilityServiceImplTest {
     @Test
     public void createTest() {
         LocationUnavailability u1 = new LocationUnavailability(1, "Java", LocalDate.parse("2018-08-16"), LocalDate.parse("2018-06-11"), 5);
-        Mockito.when(unavailabilityRepository.save(u1)).thenReturn(u1);
+        Mockito.when(unavailabilityRepo.save(u1)).thenReturn(u1);
         LocationUnavailability lTest = unavailabilityService.create(u1);
         assertEquals(1, lTest.getId());
     }
 
     @Test
     public void deleteTest() {
-        Mockito.doNothing().when(unavailabilityRepository).deleteById(8);
+        Mockito.doNothing().when(unavailabilityRepo).deleteById(8);
         unavailabilityService.delete(8);
         Optional<LocationUnavailability> opTest = unavailabilityService.findById(8);
         assertFalse(opTest.isPresent());

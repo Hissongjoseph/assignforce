@@ -1,12 +1,12 @@
 package com.revature.assignforce.beans;
 
-public class SkillsNotifierBean {
+public class SkillsNotifier {
     private int skillId;
 
-    public SkillsNotifierBean() {
+    public SkillsNotifier() {
     }
 
-    public SkillsNotifierBean(int skillId) {
+    public SkillsNotifier(int skillId) {
         this.skillId = skillId;
     }
 

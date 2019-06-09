@@ -1,7 +1,7 @@
 package com.revature.assignforce.service;
 
 import com.revature.assignforce.beans.Location;
-import com.revature.assignforce.repos.LocationRepository;
+import com.revature.assignforce.repos.LocationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,30 +12,30 @@ import java.util.Optional;
 public class LocationServiceImpl implements LocationService {
 
 	@Autowired
-	private LocationRepository locationRepository;
+	private LocationRepo locationRepo;
 
 	@Override
 	public List<Location> getAll() {
-		return locationRepository.findAll();
+		return locationRepo.findAll();
 	}
 
 	@Override
 	public Optional<Location> findById(int id) {
-		return locationRepository.findById(id);
+		return locationRepo.findById(id);
 	}
 
 	@Override
 	public Location update(Location t) {
-		return locationRepository.save(t);
+		return locationRepo.save(t);
 	}
 
 	@Override
 	public Location create(Location t) {
-		return locationRepository.save(t);
+		return locationRepo.save(t);
 	}
 
 	@Override
 	public void delete(int id) {
-		locationRepository.deleteById(id);
+		locationRepo.deleteById(id);
 	}
 }

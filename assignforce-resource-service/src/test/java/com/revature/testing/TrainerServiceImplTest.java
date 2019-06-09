@@ -4,7 +4,7 @@ import com.revature.assignforce.beans.Cert;
 import com.revature.assignforce.beans.SkillIdHolder;
 import com.revature.assignforce.beans.Trainer;
 import com.revature.assignforce.beans.Unavailability;
-import com.revature.assignforce.repos.SkillRepository;
+import com.revature.assignforce.repos.SkillIdRepo;
 import com.revature.assignforce.repos.TrainerRepo;
 import com.revature.assignforce.service.TrainerService;
 import com.revature.assignforce.service.TrainerServiceImpl;
@@ -46,8 +46,8 @@ public class TrainerServiceImplTest {
 		}
 
 		@Bean
-		public SkillRepository SkillRepository() {
-			return Mockito.mock(SkillRepository.class);
+		public SkillIdRepo SkillRepository() {
+			return Mockito.mock(SkillIdRepo.class);
 		}
 
 //		@Bean

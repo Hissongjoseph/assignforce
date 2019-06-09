@@ -1,7 +1,7 @@
 package com.revature.testing;
 
 import com.revature.assignforce.beans.Location;
-import com.revature.assignforce.repos.LocationRepository;
+import com.revature.assignforce.repos.LocationRepo;
 import com.revature.assignforce.service.LocationService;
 import com.revature.assignforce.service.LocationServiceImpl;
 import org.junit.Test;
@@ -31,15 +31,15 @@ public class LocationServiceImplTest {
 		return new LocationServiceImpl();
 		}
 	@Bean
-	public LocationRepository LocationRepository() {
-		return Mockito.mock(LocationRepository.class);
+	public LocationRepo LocationRepository() {
+		return Mockito.mock(LocationRepo.class);
 		}
 	}
 	
 	@Autowired
 	private LocationService locationService;
 	@Autowired
-	private LocationRepository locationRepository;
+	private LocationRepo locationRepo;
 	
 	@Test
 	public void getAllTest() {
@@ -48,7 +48,7 @@ public class LocationServiceImplTest {
 		List<Location> locationList = new ArrayList<Location>();
 		locationList.add(l1);
 		locationList.add(l2);
-		Mockito.when(locationRepository.findAll()).thenReturn(locationList);
+		Mockito.when(locationRepo.findAll()).thenReturn(locationList);
 		List<Location> testList = locationService.getAll();
 		assertTrue(testList.size() == 2);
 	}
@@ -58,7 +58,7 @@ public class LocationServiceImplTest {
 		String name = "Chicago";
 		Location l = new Location(4, name, "Chicago", "IL", false);
 		Optional<Location> op = Optional.ofNullable(l);
-		Mockito.when(locationRepository.findById(4)).thenReturn(op);
+		Mockito.when(locationRepo.findById(4)).thenReturn(op);
 		Optional<Location> lTest = locationService.findById(4);
 		assertTrue(lTest.get().getName().equals(name));
 	}
@@ -67,7 +67,7 @@ public class LocationServiceImplTest {
 	public void updateTest() {
 		Location l = new Location(4, "Chicago", "Chicago", "IL", false);
 		l.setIsActive(true);
-		Mockito.when(locationRepository.save(l)).thenReturn(l);
+		Mockito.when(locationRepo.save(l)).thenReturn(l);
 		Location lTest = locationService.update(l);
 		assertTrue(lTest.getIsActive());
 	}
@@ -76,7 +76,7 @@ public class LocationServiceImplTest {
 	public void createTest() {
 		int id = 5;
 		Location l = new Location(id, "New York", "New York", "NY", true);
-		Mockito.when(locationRepository.save(l)).thenReturn(l);
+		Mockito.when(locationRepo.save(l)).thenReturn(l);
 		Location lTest = locationService.create(l);
 		assertTrue(lTest.getId() == id);
 	}
@@ -84,7 +84,7 @@ public class LocationServiceImplTest {
 	@Test
 	public void deleteTest() {
 		int id = 8;
-		Mockito.doNothing().when(locationRepository).deleteById(id);
+		Mockito.doNothing().when(locationRepo).deleteById(id);
 		locationService.delete(id);
 		Optional<Location> opTest = locationService.findById(id);
 		assertFalse(opTest.isPresent());

@@ -4,10 +4,7 @@
 package com.revature.testing;
 
 import static org.junit.Assert.assertTrue;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
-import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -25,7 +22,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 
 import com.revature.assignforce.beans.Batch;
@@ -35,8 +31,8 @@ import com.revature.assignforce.commands.FindLocationCommand;
 import com.revature.assignforce.commands.FindSkillsCommand;
 import com.revature.assignforce.commands.FindTrainerCommand;
 import com.revature.assignforce.controllers.BatchController;
-import com.revature.assignforce.repos.BatchRepository;
-import com.revature.assignforce.repos.SkillRepository;
+import com.revature.assignforce.repos.BatchRepo;
+import com.revature.assignforce.repos.SkillIdRepo;
 import com.revature.assignforce.service.BatchService;
 import com.revature.assignforce.service.BatchServiceImpl;
 
@@ -52,8 +48,8 @@ public class BatchControllerTest {
 		}
 
 		@Bean
-		public BatchRepository batchRepository() {
-			return Mockito.mock(BatchRepository.class);
+		public BatchRepo batchRepository() {
+			return Mockito.mock(BatchRepo.class);
 		}
 
 		@Bean
@@ -62,8 +58,8 @@ public class BatchControllerTest {
 		}
 
 		@Bean
-		public SkillRepository skillRepository() {
-			return Mockito.mock(SkillRepository.class);
+		public SkillIdRepo skillRepository() {
+			return Mockito.mock(SkillIdRepo.class);
 		}
 		
 		@Bean
@@ -88,7 +84,7 @@ public class BatchControllerTest {
 	}
 
 	@Autowired
-	private BatchRepository batchRepository;
+	private BatchRepo batchRepo;
 	@Autowired
 	private BatchController batchController;
 	@Autowired
@@ -135,7 +131,7 @@ public class BatchControllerTest {
 		batchList.add(b1);
 		batchList.add(b2);
 		batchList.add(b3);
-		Mockito.when(batchRepository.findAll()).thenReturn(batchList);
+		Mockito.when(batchRepo.findAll()).thenReturn(batchList);
 
 		List<Batch> testList = batchController.getAll();
 		assertTrue(testList.size() == 3);
@@ -157,7 +153,7 @@ public class BatchControllerTest {
 		Batch b1 = new Batch(3, "Microservices",  LocalDate.of(2020, 1, 1), LocalDate.of(2020,2,1), 3, 6, 6, skillSet,
 				1, 1, 1, 1);
 		Optional<Batch> op1 = Optional.ofNullable(b1);
-		Mockito.when(batchRepository.findById(3)).thenReturn(op1);
+		Mockito.when(batchRepo.findById(3)).thenReturn(op1);
 		ResponseEntity<Batch> reTest = batchController.getById(3);
 		assertTrue(reTest.getBody().getId() == 3 && reTest.getStatusCode() == HttpStatus.OK);
 	}
@@ -185,7 +181,7 @@ public class BatchControllerTest {
 		skillSet.add(s5);
 		Batch b1 = new Batch(5, "Microservices",  LocalDate.of(2020, 1, 1), LocalDate.of(2020,2,1), 3, 6, 6, skillSet,
 				1, 1, 1, 1);
-		Mockito.when(batchRepository.save(b1)).thenReturn(b1);
+		Mockito.when(batchRepo.save(b1)).thenReturn(b1);
 //		mockTrainerServer.expect(requestTo("http://localhost:8765/trainer-service/" + b1.getTrainer()))
 //		  .andRespond(withSuccess());
 //		mockCurriculumServer.expect(requestTo("http://localhost:8765/curriculum-service/" + b1.getCurriculum()))
@@ -257,7 +253,7 @@ public class BatchControllerTest {
 		
 	
 		b1.setEndDate(LocalDate.of(2020, 2, 2));
-		Mockito.when(batchRepository.save(b1)).thenReturn(b1);
+		Mockito.when(batchRepo.save(b1)).thenReturn(b1);
 		ResponseEntity<Batch> reTest = batchController.update(b1);
 		assertTrue(reTest.getBody().getEndDate().equals(LocalDate.of(2020, 2, 2))
 				&& reTest.getStatusCode() == HttpStatus.OK);
@@ -285,7 +281,7 @@ public class BatchControllerTest {
 
 	@Test
 	public void deleteTest() {
-		Mockito.doNothing().when(batchRepository).deleteById(9);
+		Mockito.doNothing().when(batchRepo).deleteById(9);
 		ResponseEntity<Batch> reTest = batchController.delete(9);
 		assertTrue(reTest.getStatusCode() == HttpStatus.OK);
 	}

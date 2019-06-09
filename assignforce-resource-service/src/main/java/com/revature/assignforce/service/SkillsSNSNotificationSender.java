@@ -1,6 +1,6 @@
 package com.revature.assignforce.service;
 
-import com.revature.assignforce.beans.SkillsNotifierBean;
+import com.revature.assignforce.beans.SkillsNotifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.aws.messaging.core.NotificationMessagingTemplate;
@@ -23,12 +23,12 @@ public class SkillsSNSNotificationSender implements SkillSNSNotifier {
 
 
     @Override
-    public void sendDeleteNotification(SkillsNotifierBean skillsNotifierBean){
-        send(snsSkillsDelTopic, "Delete Skill", skillsNotifierBean, notificationMessagingTemplate);
+    public void sendDeleteNotification(SkillsNotifier skillsNotifier){
+        send(snsSkillsDelTopic, "Delete Skill", skillsNotifier, notificationMessagingTemplate);
     }
 
     @Override
-    public void sendAddNotification(SkillsNotifierBean skillsNotifierBean){
-        send(snsSkillsAddTopic, "Add Skill", skillsNotifierBean, notificationMessagingTemplate);
+    public void sendAddNotification(SkillsNotifier skillsNotifier){
+        send(snsSkillsAddTopic, "Add Skill", skillsNotifier, notificationMessagingTemplate);
     }
 }

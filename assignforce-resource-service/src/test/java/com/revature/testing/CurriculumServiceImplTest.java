@@ -1,4 +1,4 @@
-package com.revature.assignforce.tests;
+package com.revature.testing;
 
 import static org.junit.Assert.*;
 

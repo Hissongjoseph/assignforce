@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UnavailabilityRepository extends JpaRepository<LocationUnavailability, Integer> {
+public interface UnavailabilityRepo extends JpaRepository<LocationUnavailability, Integer> {
 
 }

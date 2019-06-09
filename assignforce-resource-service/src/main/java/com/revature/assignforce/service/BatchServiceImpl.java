@@ -17,21 +17,21 @@ import com.revature.assignforce.commands.FindCurriculumCommand;
 import com.revature.assignforce.commands.FindLocationCommand;
 import com.revature.assignforce.commands.FindSkillsCommand;
 import com.revature.assignforce.commands.FindTrainerCommand;
-import com.revature.assignforce.repos.BatchRepository;
-import com.revature.assignforce.repos.SkillRepository;
+import com.revature.assignforce.repos.BatchRepo;
+import com.revature.assignforce.repos.SkillIdRepo;
 
 @Transactional
 @Service
 public class BatchServiceImpl implements BatchService {
 
 	@Autowired
-	private BatchRepository batchRepository;
+	private BatchRepo batchRepo;
 
 	@Autowired
 	private BatchService batchService;
 	
 	@Autowired
-	private SkillRepository skillRepository;
+	private SkillIdRepo skillIdRepo;
 	
 	@Autowired
 	private FindTrainerCommand findTrainerCommand;
@@ -47,20 +47,20 @@ public class BatchServiceImpl implements BatchService {
 
 	@Override
 	public List<Batch> getAll() {
-		return batchRepository.findAll();
+		return batchRepo.findAll();
 	}
 
 	@Override
 	public Optional<Batch> findById(int id) {
-		return batchRepository.findById(id);
+		return batchRepo.findById(id);
 	}
 
 	@Override
 	public Batch update(Batch b) {
 		for(SkillIdHolder s : b.getSkills()) {
-			skillRepository.save(s);
+			skillIdRepo.save(s);
 		}
-		return batchRepository.save(b);
+		return batchRepo.save(b);
 	}
 	
 	/**
@@ -81,33 +81,33 @@ public class BatchServiceImpl implements BatchService {
 		// b = validateReferences(b);
 		
 		for(SkillIdHolder s : skills) {
-			skillRepository.save(s);
+			skillIdRepo.save(s);
 		}
 		
-		return batchRepository.save(b);
+		return batchRepo.save(b);
 	}
 
 	@Override
 	public void delete(int id) {
-		Optional<Batch> batch = batchRepository.findById(id);
+		Optional<Batch> batch = batchRepo.findById(id);
 		if (!batch.isPresent()) {
 			return;
 		}
 		batch.get().setSkills(new HashSet<SkillIdHolder>());
-		batchRepository.save(batch.get());
-		batchRepository.deleteById(id);
+		batchRepo.save(batch.get());
+		batchRepo.deleteById(id);
 	}
 	@Override
 	public List<Batch> getAllByCurriculum(int curriculumId){
-		return batchRepository.findByCurriculum(curriculumId);
+		return batchRepo.findByCurriculum(curriculumId);
 	}
 	@Override
 	public List<Batch> getAllByTrainer(int trainerId){
-		return batchRepository.findByTrainer(trainerId);
+		return batchRepo.findByTrainer(trainerId);
 	}
 	@Override
 	public List<Batch> getAllByLocation(int locationId){
-		return batchRepository.findByLocation(locationId);
+		return batchRepo.findByLocation(locationId);
 	}
 	
 	/**

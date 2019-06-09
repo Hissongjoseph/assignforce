@@ -1,7 +1,7 @@
 package com.revature.testing;
 
 import com.revature.assignforce.beans.Building;
-import com.revature.assignforce.repos.BuildingRepository;
+import com.revature.assignforce.repos.BuildingRepo;
 import com.revature.assignforce.service.BuildingService;
 import com.revature.assignforce.service.BuildingServiceImpl;
 import org.junit.Test;
@@ -31,15 +31,15 @@ public class BuildingServiceImplTest {
             return new BuildingServiceImpl();
         }
         @Bean
-        public BuildingRepository BuildingRepository() {
-            return Mockito.mock(BuildingRepository.class);
+        public BuildingRepo BuildingRepository() {
+            return Mockito.mock(BuildingRepo.class);
         }
     }
 
     @Autowired
     private BuildingService buildingService;
     @Autowired
-    private BuildingRepository buildingRepository;
+    private BuildingRepo buildingRepo;
 
     @Test
     public void getAllTest() {
@@ -48,7 +48,7 @@ public class BuildingServiceImplTest {
         List<Building> buildingList = new ArrayList<>();
         buildingList.add(b1);
         buildingList.add(b2);
-        Mockito.when(buildingRepository.findAll()).thenReturn(buildingList);
+        Mockito.when(buildingRepo.findAll()).thenReturn(buildingList);
         List<Building> testList = buildingService.getAll();
         assertTrue(testList.size() == 2);
     }
@@ -58,7 +58,7 @@ public class BuildingServiceImplTest {
         String name = "NEC";
         Building b = new Building(4, true, name, 2);
         Optional<Building> op = Optional.ofNullable(b);
-        Mockito.when(buildingRepository.findById(4)).thenReturn(op);
+        Mockito.when(buildingRepo.findById(4)).thenReturn(op);
         Optional<Building> lTest = buildingService.findById(4);
         assertTrue(lTest.get().getName().equals(name));
     }
@@ -67,7 +67,7 @@ public class BuildingServiceImplTest {
     public void updateTest() {
         Building b = new Building(4, false, "NEC", 1);
         b.setIsActive(true);
-        Mockito.when(buildingRepository.save(b)).thenReturn(b);
+        Mockito.when(buildingRepo.save(b)).thenReturn(b);
         Building lTest = buildingService.update(b);
         assertTrue(lTest.getIsActive());
     }
@@ -76,7 +76,7 @@ public class BuildingServiceImplTest {
     public void createTest() {
         int id = 5;
         Building b = new Building(id, true,"Business", 6);
-        Mockito.when(buildingRepository.save(b)).thenReturn(b);
+        Mockito.when(buildingRepo.save(b)).thenReturn(b);
         Building lTest = buildingService.create(b);
         assertTrue(lTest.getId() == id);
     }
@@ -84,7 +84,7 @@ public class BuildingServiceImplTest {
     @Test
     public void deleteTest() {
         int id = 8;
-        Mockito.doNothing().when(buildingRepository).deleteById(id);
+        Mockito.doNothing().when(buildingRepo).deleteById(id);
         buildingService.delete(id);
         Optional<Building> opTest = buildingService.findById(id);
         assertFalse(opTest.isPresent());

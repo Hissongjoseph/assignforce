@@ -1,7 +1,7 @@
 package com.revature.assignforce.service;
 
 import com.revature.assignforce.beans.LocationUnavailability;
-import com.revature.assignforce.repos.UnavailabilityRepository;
+import com.revature.assignforce.repos.UnavailabilityRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class UnavailabilityServiceImpl  implements UnavailabilityService {
 
 	
 	@Autowired
-	private UnavailabilityRepository unavailabilityRepository;
+	private UnavailabilityRepo unavailabilityRepo;
 	
 	@Autowired
 	private RoomService roomService;
@@ -21,27 +21,27 @@ public class UnavailabilityServiceImpl  implements UnavailabilityService {
 
 	@Override
 	public List<LocationUnavailability> getAll() {
-		return unavailabilityRepository.findAll();
+		return unavailabilityRepo.findAll();
 	}
 	
 	
 	@Override
 	public Optional<LocationUnavailability> findById(int id) {
-		return unavailabilityRepository.findById(id);
+		return unavailabilityRepo.findById(id);
 	}
 	@Override
 	public LocationUnavailability update(LocationUnavailability t) {
-		return unavailabilityRepository.save(t);
+		return unavailabilityRepo.save(t);
 	}
 
 	@Override
 	public LocationUnavailability create(LocationUnavailability t) {
-		return unavailabilityRepository.save(t);
+		return unavailabilityRepo.save(t);
 	}
 
 	@Override
 	public void delete(int id) {
-		unavailabilityRepository.deleteById(id);
+		unavailabilityRepo.deleteById(id);
 	}
 	
 	public LocationUnavailability addUnavailability(LocationUnavailability t) {
