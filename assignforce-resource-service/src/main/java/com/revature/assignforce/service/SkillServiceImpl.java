@@ -1,8 +1,8 @@
 package com.revature.assignforce.service;
 
-import com.revature.assignforce.beans.SkillsNotifierBean;
+import com.revature.assignforce.beans.SkillsNotifier;
 import com.revature.assignforce.beans.Skill;
-import com.revature.assignforce.repository.SkillRepository;
+import com.revature.assignforce.repos.SkillRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class SkillServiceImpl implements SkillService {
 	private static final Logger LOG = LoggerFactory.getLogger(name);
 
 	@Autowired
-	SkillRepository skillRepo;
+	SkillRepo skillRepo;
 
 	SkillsSNSNotificationSender notificationSender;
 
@@ -42,7 +42,7 @@ public class SkillServiceImpl implements SkillService {
 	@Override // Create Check for Duplicate skill name. If duplicate, ignore.
 	public Skill createSkill(Skill skill) {
 		Skill s = skillRepo.save(skill);
-		notificationSender.sendAddNotification(new SkillsNotifierBean(s.getId()));
+		notificationSender.sendAddNotification(new SkillsNotifier(s.getId()));
 		return s;
 
 	}
@@ -50,7 +50,7 @@ public class SkillServiceImpl implements SkillService {
 	@Override
 	public Skill updateSkill(Skill skill) {
 		LOG.info("Pushing message for deleting skill {}", skill.getId());
-		notificationSender.sendDeleteNotification(new SkillsNotifierBean(skill.getId()));
+		notificationSender.sendDeleteNotification(new SkillsNotifier(skill.getId()));
 		return skillRepo.save(skill);
 	}
 

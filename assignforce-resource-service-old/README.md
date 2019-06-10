@@ -1,1 +1,0 @@
-# assignforce-resource-service
