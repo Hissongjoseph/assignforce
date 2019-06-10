@@ -1,10 +1,10 @@
 /**
  *  Batch Form Component
- * 
+ *
  * @author Auguest Duet
  */
 
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit , Output, EventEmitter, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { CurriculumControllerService } from '../../services/api/curriculum-controller/curriculum-controller.service';
 import { Curriculum } from '../../model/Curriculum';
@@ -46,7 +46,7 @@ export class BatchFormComponent implements OnInit, OnChanges {
   rooms: Room[] = new Array<Room>();
   filteredRooms: Room[] = new Array<Room>();
   allSkills: Skill[] = new Array<Skill>();
-  filteredSkills: {skillId: number}[] = new Array<{skillId: number}>();
+  filteredSkills: {id: number}[] = new Array<{id: number}>();
 
 
   //state trackers
@@ -108,7 +108,7 @@ export class BatchFormComponent implements OnInit, OnChanges {
         value: null,
         disabled: this.isDataLoading
       }),
-      classSize: new FormControl({
+      size: new FormControl({
         value: this.minBatchTarget,
         disabled: this.isDataLoading
       }),
