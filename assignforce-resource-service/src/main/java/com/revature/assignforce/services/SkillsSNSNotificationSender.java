@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SkillsSNSNotificationSender implements SkillSNSNotifier {
+
     @Value("${app.sns.topics.add-skill}")
     private String snsSkillsAddTopic;
 

@@ -2,6 +2,7 @@ package com.revature.assignforce.service;
 
 import com.revature.assignforce.beans.SkillsNotifier;
 import com.revature.assignforce.beans.Skill;
+import com.revature.assignforce.repos.SkillIdRepo;
 import com.revature.assignforce.repos.SkillRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
