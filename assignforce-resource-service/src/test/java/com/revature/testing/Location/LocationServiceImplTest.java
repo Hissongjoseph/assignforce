@@ -2,8 +2,8 @@ package com.revature.testing.Location;
 
 import com.revature.assignforce.beans.Location;
 import com.revature.assignforce.repos.LocationRepo;
-import com.revature.assignforce.service.LocationService;
-import com.revature.assignforce.service.LocationServiceImpl;
+import com.revature.assignforce.services.LocationService;
+import com.revature.assignforce.services.LocationServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

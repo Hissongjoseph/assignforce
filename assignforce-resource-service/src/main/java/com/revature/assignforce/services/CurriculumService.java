@@ -1,4 +1,4 @@
-package com.revature.assignforce.service;
+package com.revature.assignforce.services;
 
 import java.util.List;
 import java.util.Optional;

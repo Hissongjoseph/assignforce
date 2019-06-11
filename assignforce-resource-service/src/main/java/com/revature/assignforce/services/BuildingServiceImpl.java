@@ -1,4 +1,4 @@
-package com.revature.assignforce.service;
+package com.revature.assignforce.services;
 
 import com.revature.assignforce.beans.Building;
 import com.revature.assignforce.repos.BuildingRepo;

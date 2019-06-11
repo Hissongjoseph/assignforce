@@ -13,13 +13,13 @@ public class FindCurriculumCommand {
 
 	@Value("${environment.gateway-url:http://localhost:8765/}")
 	private String gatewayUrl;
-	@Value("${environment.service.curriculum:curriculum-service/}")
+	@Value("${environment.services.curriculum:curriculum-services/}")
 	private String curriculumUri;
 	
 	private final RestTemplate restTemplate = new RestTemplate();
 	
 	/**
-	 * Command called to verify that the batch curriculum provided exists in the curriculum service
+	 * Command called to verify that the batch curriculum provided exists in the curriculum services
 	 * @param batch - new batch trying to be created
 	 * @return - if the curriculum exists, return an unmodified batch
 	 */

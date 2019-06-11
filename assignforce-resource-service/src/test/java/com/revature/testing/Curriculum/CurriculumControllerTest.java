@@ -21,8 +21,8 @@ import com.revature.assignforce.beans.Curriculum;
 import com.revature.assignforce.beans.SkillIdHolder;
 import com.revature.assignforce.controllers.CurriculumController;
 import com.revature.assignforce.repos.CurriculumRepo;
-import com.revature.assignforce.service.CurriculumService;
-import com.revature.assignforce.service.CurriculumServiceImpl;
+import com.revature.assignforce.services.CurriculumService;
+import com.revature.assignforce.services.CurriculumServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest

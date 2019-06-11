@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.assignforce.beans.Curriculum;
-import com.revature.assignforce.service.CurriculumService;
+import com.revature.assignforce.services.CurriculumService;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

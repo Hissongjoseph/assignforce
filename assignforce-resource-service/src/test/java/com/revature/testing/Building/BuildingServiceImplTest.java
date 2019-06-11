@@ -2,8 +2,8 @@ package com.revature.testing.Building;
 
 import com.revature.assignforce.beans.Building;
 import com.revature.assignforce.repos.BuildingRepo;
-import com.revature.assignforce.service.BuildingService;
-import com.revature.assignforce.service.BuildingServiceImpl;
+import com.revature.assignforce.services.BuildingService;
+import com.revature.assignforce.services.BuildingServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

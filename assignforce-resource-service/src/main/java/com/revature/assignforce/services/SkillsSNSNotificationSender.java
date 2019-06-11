@@ -1,4 +1,4 @@
-package com.revature.assignforce.service;
+package com.revature.assignforce.services;
 
 import com.revature.assignforce.beans.SkillsNotifier;
 import org.springframework.beans.factory.annotation.Autowired;

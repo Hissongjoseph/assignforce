@@ -13,13 +13,13 @@ public class FindSkillsCommand {
 
 	@Value("${environment.gateway-url:http://localhost:8765/}")
 	private String gatewayUrl;
-	@Value("${environment.service.skills:skill-service/}")
+	@Value("${environment.services.skills:skill-services/}")
 	private String skillUri;
 	
 	private final RestTemplate restTemplate = new RestTemplate();
 	
 	/**
-	 * Command called to verify that the skill provided exists in the skill service
+	 * Command called to verify that the skill provided exists in the skill services
 	 * @param skillIdHolder - skill id
 	 * @return - if the skill exists, return true
 	 */

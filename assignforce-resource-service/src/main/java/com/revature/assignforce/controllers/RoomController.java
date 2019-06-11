@@ -1,7 +1,7 @@
 package com.revature.assignforce.controllers;
 
 import com.revature.assignforce.beans.Room;
-import com.revature.assignforce.service.RoomService;
+import com.revature.assignforce.services.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

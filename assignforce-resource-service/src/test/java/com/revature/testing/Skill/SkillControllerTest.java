@@ -3,7 +3,7 @@ package com.revature.testing.Skill;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.assignforce.beans.Skill;
 import com.revature.assignforce.controllers.SkillController;
-import com.revature.assignforce.service.SkillService;
+import com.revature.assignforce.services.SkillService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

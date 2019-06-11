@@ -5,7 +5,11 @@ spring:
     config:
       uri: ${CONFIG_URL}
   application:
-    name: resource-service
+    name: resource-services
+  datasource:
+    platform: h2
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:test;MODE=PostgreSQL
 management:
   endpoints:
     web:

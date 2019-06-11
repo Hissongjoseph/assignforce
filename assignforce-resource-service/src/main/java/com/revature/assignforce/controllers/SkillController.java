@@ -2,7 +2,7 @@ package com.revature.assignforce.controllers;
 
 import com.revature.assignforce.beans.Skill;
 import com.revature.assignforce.containers.SkillsArray;
-import com.revature.assignforce.service.SkillService;
+import com.revature.assignforce.services.SkillService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

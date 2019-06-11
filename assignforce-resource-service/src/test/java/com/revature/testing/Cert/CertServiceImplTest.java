@@ -2,8 +2,8 @@ package com.revature.testing.Cert;
 
 import com.revature.assignforce.beans.Cert;
 import com.revature.assignforce.repos.CertRepo;
-import com.revature.assignforce.service.CertService;
-import com.revature.assignforce.service.CertServiceImpl;
+import com.revature.assignforce.services.CertService;
+import com.revature.assignforce.services.CertServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

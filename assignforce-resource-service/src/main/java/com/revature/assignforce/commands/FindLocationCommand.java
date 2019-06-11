@@ -13,13 +13,13 @@ public class FindLocationCommand {
 
 	@Value("${environment.gateway-url:http://localhost:8765/}")
 	private String gatewayUrl;
-	@Value("${environment.service.location:location-service/}")
+	@Value("${environment.services.location:location-services/}")
 	private String locationUri;
 	
 	private final RestTemplate restTemplate = new RestTemplate();
 	
 	/**
-	 * Command called to verify that the batch location provided exists in the location service
+	 * Command called to verify that the batch location provided exists in the location services
 	 * @param batch - new batch trying to be created
 	 * @return - if the location exists, return an unmodified batch
 	 */

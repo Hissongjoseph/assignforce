@@ -1,4 +1,4 @@
-package com.revature.assignforce.service;
+package com.revature.assignforce.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

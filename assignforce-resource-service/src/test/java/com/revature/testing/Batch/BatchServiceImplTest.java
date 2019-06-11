@@ -27,8 +27,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.revature.assignforce.beans.Batch;
 import com.revature.assignforce.beans.SkillIdHolder;
 import com.revature.assignforce.repos.BatchRepo;
-import com.revature.assignforce.service.BatchService;
-import com.revature.assignforce.service.BatchServiceImpl;
+import com.revature.assignforce.services.BatchService;
+import com.revature.assignforce.services.BatchServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest

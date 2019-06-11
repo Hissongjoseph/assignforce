@@ -1,7 +1,7 @@
 package com.revature.assignforce.controllers;
 
 import com.revature.assignforce.beans.Settings;
-import com.revature.assignforce.service.SettingsService;
+import com.revature.assignforce.services.SettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

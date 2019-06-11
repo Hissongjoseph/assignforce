@@ -1,8 +1,8 @@
 package com.revature.assignforce.controllers;
 
 import com.revature.assignforce.beans.LocationUnavailability;
-import com.revature.assignforce.service.RoomService;
-import com.revature.assignforce.service.UnavailabilityService;
+import com.revature.assignforce.services.RoomService;
+import com.revature.assignforce.services.UnavailabilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

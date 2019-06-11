@@ -33,8 +33,8 @@ import com.revature.assignforce.commands.FindTrainerCommand;
 import com.revature.assignforce.controllers.BatchController;
 import com.revature.assignforce.repos.BatchRepo;
 import com.revature.assignforce.repos.SkillIdRepo;
-import com.revature.assignforce.service.BatchService;
-import com.revature.assignforce.service.BatchServiceImpl;
+import com.revature.assignforce.services.BatchService;
+import com.revature.assignforce.services.BatchServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest

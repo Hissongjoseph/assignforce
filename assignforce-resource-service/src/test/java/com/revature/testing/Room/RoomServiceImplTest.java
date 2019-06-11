@@ -3,8 +3,8 @@ package com.revature.testing.Room;
 
 import com.revature.assignforce.beans.Room;
 import com.revature.assignforce.repos.RoomRepo;
-import com.revature.assignforce.service.RoomService;
-import com.revature.assignforce.service.RoomServiceImpl;
+import com.revature.assignforce.services.RoomService;
+import com.revature.assignforce.services.RoomServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

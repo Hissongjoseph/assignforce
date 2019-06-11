@@ -13,13 +13,13 @@ public class FindTrainerCommand {
 
 	@Value("${environment.gateway-url:http://localhost:8765/}")
 	private String gatewayUrl;
-	@Value("${environment.service.trainer:trainer-service/}")
+	@Value("${environment.services.trainer:trainer-services/}")
 	private String trainerUri;
 	
 	private final RestTemplate restTemplate = new RestTemplate();
 	
 	/**
-	 * Command called to verify that the batch trainer provided exists in the trainer service
+	 * Command called to verify that the batch trainer provided exists in the trainer services
 	 * @param batch - new batch trying to be created
 	 * @return - if the trainer exists, return an unmodified batch
 	 */

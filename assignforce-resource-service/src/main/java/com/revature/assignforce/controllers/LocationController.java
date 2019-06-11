@@ -1,7 +1,7 @@
 package com.revature.assignforce.controllers;
 
 import com.revature.assignforce.beans.Location;
-import com.revature.assignforce.service.LocationService;
+import com.revature.assignforce.services.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
